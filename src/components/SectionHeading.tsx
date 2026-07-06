@@ -13,7 +13,7 @@ export default function SectionHeading({
 }) {
   return (
     <Reveal
-      className={`mb-14 max-w-2xl ${
+      className={`mb-14 max-w-3xl ${
         align === "center" ? "mx-auto text-center" : ""
       }`}
     >
@@ -21,11 +21,11 @@ export default function SectionHeading({
         <span className="dot">/</span>
         <span>{eyebrow}</span>
       </span>
-      <p className="font-display mt-5 text-4xl font-medium text-paper sm:text-5xl">
+      <p className="font-display mt-5 text-5xl font-medium text-paper sm:text-6xl">
         {title}
       </p>
       {description && (
-        <p className="mt-4 text-base text-muted sm:text-lg">{description}</p>
+        <p className="mt-5 text-lg text-muted sm:text-xl">{description}</p>
       )}
     </Reveal>
   );

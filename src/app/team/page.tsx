@@ -35,13 +35,20 @@ export default function TeamPage() {
           <div className="hairline-t grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((member) => (
               <div key={member.name} className="hairline-b py-8">
-                <span className="font-display text-3xl text-accent">
+                <div
+                  className="font-display flex h-16 w-16 items-center justify-center rounded-full text-xl text-pure"
+                  style={{
+                    backgroundImage:
+                      "linear-gradient(150deg, rgba(31,169,113,0.9), rgba(27,36,38,0.9))",
+                  }}
+                  aria-hidden="true"
+                >
                   {member.name
                     .split(" ")
                     .map((n) => n[0])
                     .join("")}
-                </span>
-                <h3 className="font-display mt-3 text-lg text-paper">{member.name}</h3>
+                </div>
+                <h3 className="font-display mt-4 text-lg text-paper">{member.name}</h3>
                 <p className="mono-label mt-1 text-[11px] text-accent">{member.role}</p>
                 <p className="mt-3 text-sm text-muted">{member.bio}</p>
               </div>

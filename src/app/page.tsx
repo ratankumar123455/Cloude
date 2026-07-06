@@ -6,6 +6,7 @@ import MagneticLink from "@/components/MagneticLink";
 import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
 import HeroVisual from "@/components/HeroVisual";
+import Gallery from "@/components/Gallery";
 import WhySutertai from "@/components/WhySutertai";
 import CapabilitiesGrid from "@/components/CapabilitiesGrid";
 import ProcessTimeline from "@/components/ProcessTimeline";
@@ -60,7 +61,7 @@ export default function Home() {
           className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[720px]"
           style={{
             background:
-              "radial-gradient(800px circle at 15% -10%, rgba(232,100,44,0.22), transparent 60%), radial-gradient(800px circle at 90% 15%, rgba(143,227,176,0.12), transparent 55%)",
+              "radial-gradient(800px circle at 15% -10%, rgba(31,169,113,0.22), transparent 60%), radial-gradient(800px circle at 90% 15%, rgba(52,211,199,0.12), transparent 55%)",
           }}
           aria-hidden="true"
         />
@@ -73,14 +74,14 @@ export default function Home() {
               </span>
             </Reveal>
             <Reveal delay={80}>
-              <h1 className="font-display mt-6 max-w-xl text-5xl leading-[1.05] font-medium text-paper sm:text-7xl">
+              <h1 className="font-display mt-6 max-w-2xl text-6xl leading-[1.02] font-medium text-paper sm:text-8xl">
                 Build <span className="font-light text-muted">intelligence.</span>
                 <br />
                 <span className="text-generated">Create anything.</span>
               </h1>
             </Reveal>
             <Reveal delay={160}>
-              <p className="mt-8 max-w-xl text-lg text-muted">
+              <p className="mt-8 max-w-xl text-xl text-muted">
                 Sutertai turns a written prompt into a finished image or video —
                 production-grade output, built for teams that ship creative
                 work every day.
@@ -153,7 +154,7 @@ export default function Home() {
                 className="mt-8 h-40 w-full rounded-xl"
                 style={{
                   backgroundImage:
-                    "linear-gradient(150deg, rgba(232,100,44,0.4), rgba(27,36,38,0.9) 70%)",
+                    "linear-gradient(150deg, rgba(31,169,113,0.4), rgba(27,36,38,0.9) 70%)",
                 }}
                 aria-hidden="true"
               />
@@ -197,6 +198,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Gallery />
       <WhySutertai />
       <CapabilitiesGrid />
       <ProcessTimeline />

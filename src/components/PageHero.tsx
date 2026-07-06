@@ -14,10 +14,10 @@ export default function PageHero({
           <span className="dot">/</span>
           <span>{eyebrow}</span>
         </span>
-        <h1 className="font-display mt-6 text-5xl font-medium text-paper sm:text-6xl">
+        <h1 className="font-display mt-6 text-6xl font-medium text-paper sm:text-7xl">
           {title}
         </h1>
-        <p className="mt-6 text-lg text-muted">{description}</p>
+        <p className="mt-6 text-xl text-muted">{description}</p>
       </div>
     </section>
   );

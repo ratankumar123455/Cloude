@@ -1,8 +1,8 @@
 const frames = [
-  { id: "01", tone: "linear-gradient(150deg, rgba(232,100,44,0.5), rgba(27,36,38,0.92) 70%)" },
-  { id: "02", tone: "linear-gradient(150deg, rgba(143,227,176,0.35), rgba(27,36,38,0.92) 70%)" },
-  { id: "03", tone: "linear-gradient(150deg, rgba(255,131,71,0.55), rgba(27,36,38,0.92) 70%)", active: true },
-  { id: "04", tone: "linear-gradient(150deg, rgba(232,100,44,0.25), rgba(27,36,38,0.92) 70%)" },
+  { id: "01", tone: "linear-gradient(150deg, rgba(31,169,113,0.5), rgba(27,36,38,0.92) 70%)" },
+  { id: "02", tone: "linear-gradient(150deg, rgba(52,211,199,0.35), rgba(27,36,38,0.92) 70%)" },
+  { id: "03", tone: "linear-gradient(150deg, rgba(74,222,147,0.55), rgba(27,36,38,0.92) 70%)", active: true },
+  { id: "04", tone: "linear-gradient(150deg, rgba(31,169,113,0.25), rgba(27,36,38,0.92) 70%)" },
 ];
 
 export default function HeroVisual() {
@@ -12,7 +12,7 @@ export default function HeroVisual() {
         className="absolute -inset-16 -z-10 blur-3xl"
         style={{
           background:
-            "radial-gradient(220px circle at 30% 20%, rgba(232,100,44,0.35), transparent 65%), radial-gradient(260px circle at 80% 70%, rgba(143,227,176,0.18), transparent 65%)",
+            "radial-gradient(220px circle at 30% 20%, rgba(31,169,113,0.35), transparent 65%), radial-gradient(260px circle at 80% 70%, rgba(52,211,199,0.18), transparent 65%)",
         }}
         aria-hidden="true"
       />
@@ -41,7 +41,7 @@ export default function HeroVisual() {
                 style={{
                   backgroundImage: frame.tone,
                   borderColor: frame.active ? "var(--signal)" : "var(--line)",
-                  boxShadow: frame.active ? "0 0 0 2px rgba(232,100,44,0.25)" : "none",
+                  boxShadow: frame.active ? "0 0 0 2px rgba(31,169,113,0.25)" : "none",
                 }}
               />
               <p className="mono-label mt-1.5 text-[8.5px] text-muted-2">{frame.id}</p>
