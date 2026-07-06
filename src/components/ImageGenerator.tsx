@@ -43,9 +43,9 @@ export default function ImageGenerator() {
   }
 
   return (
-    <div className="glow-border rounded-2xl bg-white/[0.03] p-6 sm:p-10">
+    <div className="surface rounded-sm p-6 sm:p-10">
       <form onSubmit={handleGenerate} className="flex flex-col gap-4">
-        <label htmlFor="prompt" className="text-sm font-medium text-zinc-300">
+        <label htmlFor="prompt" className="mono-label text-[11px] text-muted">
           Describe the image you want
         </label>
         <textarea
@@ -55,7 +55,7 @@ export default function ImageGenerator() {
           rows={3}
           maxLength={500}
           placeholder="e.g. A cozy reading nook by a rainy window, warm light, illustration style"
-          className="w-full resize-none rounded-xl border border-white/10 bg-black/40 p-4 text-sm text-white placeholder:text-zinc-500 focus:border-violet-400 focus:outline-none"
+          className="w-full resize-none rounded-sm border border-[var(--line)] bg-black/30 p-4 text-sm text-paper placeholder:text-muted/70 focus:border-accent focus:outline-none"
         />
 
         <div className="flex flex-wrap gap-2">
@@ -64,7 +64,7 @@ export default function ImageGenerator() {
               key={example}
               type="button"
               onClick={() => setPrompt(example)}
-              className="rounded-full border border-white/10 px-3 py-1 text-xs text-zinc-400 transition-colors hover:border-violet-400 hover:text-white"
+              className="rounded-full border border-[var(--line)] px-3 py-1 text-xs text-muted transition-colors hover:border-accent hover:text-paper"
             >
               {example}
             </button>
@@ -74,31 +74,31 @@ export default function ImageGenerator() {
         <button
           type="submit"
           disabled={loading || !prompt.trim()}
-          className="rounded-full bg-gradient-to-r from-violet-500 to-sky-400 px-7 py-3 text-sm font-semibold text-black transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40 sm:self-start"
+          className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40 sm:self-start"
         >
           {loading ? "Generating…" : "Generate image"}
         </button>
       </form>
 
-      <div className="mt-8 flex min-h-[280px] items-center justify-center rounded-xl border border-dashed border-white/10 bg-black/30 p-4">
+      <div className="mt-8 flex min-h-[280px] items-center justify-center rounded-sm border border-dashed border-[var(--line)] bg-black/20 p-4">
         {loading && (
-          <p className="text-sm text-zinc-400">
+          <p className="text-sm text-muted">
             Rendering your image, this usually takes a few seconds…
           </p>
         )}
         {!loading && error && (
-          <p className="max-w-sm text-center text-sm text-rose-400">{error}</p>
+          <p className="max-w-sm text-center text-sm text-accent">{error}</p>
         )}
         {!loading && !error && imageUrl && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={imageUrl}
             alt={prompt}
-            className="max-h-[420px] w-auto rounded-lg"
+            className="max-h-[420px] w-auto rounded-sm"
           />
         )}
         {!loading && !error && !imageUrl && (
-          <p className="text-sm text-zinc-500">
+          <p className="text-sm text-muted/70">
             Your generated image will appear here.
           </p>
         )}

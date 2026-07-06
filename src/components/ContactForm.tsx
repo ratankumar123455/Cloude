@@ -18,7 +18,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <div>
-        <label htmlFor="name" className="text-sm font-medium text-zinc-300">
+        <label htmlFor="name" className="mono-label text-[11px] text-muted">
           Your name
         </label>
         <input
@@ -26,11 +26,11 @@ export default function ContactForm() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Jane Doe"
-          className="mt-2 w-full rounded-xl border border-white/10 bg-black/40 p-3 text-sm text-white placeholder:text-zinc-500 focus:border-violet-400 focus:outline-none"
+          className="mt-2 w-full rounded-sm border border-[var(--line)] bg-black/30 p-3 text-sm text-paper placeholder:text-muted/70 focus:border-accent focus:outline-none"
         />
       </div>
       <div>
-        <label htmlFor="message" className="text-sm font-medium text-zinc-300">
+        <label htmlFor="message" className="mono-label text-[11px] text-muted">
           Message
         </label>
         <textarea
@@ -40,16 +40,16 @@ export default function ContactForm() {
           rows={4}
           required
           placeholder="Tell us about your project or question"
-          className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-black/40 p-3 text-sm text-white placeholder:text-zinc-500 focus:border-violet-400 focus:outline-none"
+          className="mt-2 w-full resize-none rounded-sm border border-[var(--line)] bg-black/30 p-3 text-sm text-paper placeholder:text-muted/70 focus:border-accent focus:outline-none"
         />
       </div>
       <button
         type="submit"
-        className="rounded-full bg-gradient-to-r from-violet-500 to-sky-400 px-7 py-3 text-sm font-semibold text-black transition-opacity hover:opacity-90 sm:self-start"
+        className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-90 sm:self-start"
       >
         Send via WhatsApp
       </button>
-      <p className="text-xs text-zinc-500">
+      <p className="text-xs text-muted">
         This opens WhatsApp with your message pre-filled to +91 74598 87412.
       </p>
     </form>

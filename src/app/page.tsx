@@ -5,31 +5,37 @@ import ImageGenerator from "@/components/ImageGenerator";
 
 const capabilities = [
   {
+    tag: "Image",
     title: "Text to Image",
     description:
       "Describe a scene in plain language and get a high-resolution image back in seconds.",
   },
   {
+    tag: "Video",
     title: "Text to Video",
     description:
       "Turn a script or a single sentence into a short-form video clip with consistent motion and style.",
   },
   {
+    tag: "Direction",
     title: "Style control",
     description:
       "Guide composition, lighting, and tone through prompts — no design software required.",
   },
   {
+    tag: "Output",
     title: "Batch generation",
     description:
       "Generate multiple variations at once so you can pick the best result faster.",
   },
   {
+    tag: "Build",
     title: "API access",
     description:
       "Plug Sutertai's generation engine directly into your own app or content pipeline.",
   },
   {
+    tag: "Teams",
     title: "Team workspaces",
     description:
       "Keep prompts, styles, and generated assets organized and shared across your team.",
@@ -82,17 +88,17 @@ export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(167,139,250,0.18),_transparent_60%)]" />
-        <div className="mx-auto flex max-w-6xl flex-col items-center px-6 pt-24 pb-20 text-center">
-          <span className="glow-border rounded-full px-4 py-1 text-xs uppercase tracking-widest text-violet-300">
+      <section className="hairline-b">
+        <div className="mx-auto flex max-w-6xl flex-col items-start px-6 pt-24 pb-20">
+          <p className="mono-label text-[11px] text-accent">
             Generative AI, from words to visuals
-          </span>
-          <h1 className="mt-6 max-w-3xl text-4xl font-semibold leading-tight tracking-tight text-white sm:text-6xl">
+          </p>
+          <h1 className="font-display mt-6 max-w-3xl text-5xl leading-[1.05] text-paper sm:text-7xl">
             Turn text into
-            <span className="gradient-text"> images and video</span>
+            <br />
+            <span className="text-generated">images and video</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-zinc-400">
+          <p className="mt-8 max-w-xl text-lg text-muted">
             Sutertai Private Limited builds generative AI products that turn
             a simple prompt into ready-to-use images and videos — for
             creators, marketers, and product teams.
@@ -100,13 +106,13 @@ export default function Home() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/generate"
-              className="rounded-full bg-gradient-to-r from-violet-500 to-sky-400 px-7 py-3 text-sm font-semibold text-black transition-opacity hover:opacity-90"
+              className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-90"
             >
               Try the generator
             </Link>
             <Link
               href="/how-we-work"
-              className="glow-border rounded-full px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/5"
+              className="rounded-full border border-[var(--line)] px-7 py-3 text-sm font-semibold text-paper transition-colors hover:bg-white/5"
             >
               See how it works
             </Link>
@@ -115,7 +121,7 @@ export default function Home() {
       </section>
 
       {/* Live demo */}
-      <section id="generate" className="border-t border-white/10 py-24">
+      <section id="generate" className="hairline-b py-24">
         <div className="mx-auto max-w-4xl px-6">
           <SectionHeading
             eyebrow="Try it live"
@@ -128,18 +134,23 @@ export default function Home() {
       </section>
 
       {/* Capabilities */}
-      <section id="products" className="border-t border-white/10 py-24">
+      <section id="products" className="hairline-b py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="One platform"
             title="Every way to create a visual"
             description="Sutertai combines image and video generation with the controls creative teams actually need."
           />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="hairline-t grid sm:grid-cols-2 [&>div]:border-b [&>div]:border-[var(--line)] [&>div]:py-7 sm:[&>div:nth-child(2n)]:border-l sm:[&>div:nth-child(2n)]:border-[var(--line)] sm:[&>div:nth-child(2n)]:pl-8 sm:[&>div:nth-child(odd)]:pr-8">
             {capabilities.map((item) => (
-              <div key={item.title} className="rounded-2xl bg-white/[0.03] p-6">
-                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                <p className="mt-3 text-sm text-zinc-400">{item.description}</p>
+              <div key={item.title} className="flex flex-col gap-2">
+                <span className="mono-label text-[10px] text-accent">
+                  {item.tag}
+                </span>
+                <h3 className="font-display text-xl text-paper">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-muted">{item.description}</p>
               </div>
             ))}
           </div>
@@ -147,29 +158,29 @@ export default function Home() {
       </section>
 
       {/* How it works preview */}
-      <section className="border-t border-white/10 py-24">
+      <section className="hairline-b py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="Process"
             title="From idea to finished asset in four steps"
           />
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((item) => (
-              <div key={item.step} className="glow-border rounded-2xl bg-white/[0.03] p-6">
-                <span className="text-sm font-semibold text-violet-300">
+              <div key={item.step} className="hairline-t pt-6">
+                <span className="font-display text-3xl text-accent">
                   {item.step}
                 </span>
-                <h3 className="mt-3 text-lg font-semibold text-white">
+                <h3 className="font-display mt-3 text-lg text-paper">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-zinc-400">{item.description}</p>
+                <p className="mt-2 text-sm text-muted">{item.description}</p>
               </div>
             ))}
           </div>
-          <div className="mt-10 text-center">
+          <div className="mt-10">
             <Link
               href="/how-we-work"
-              className="text-sm font-medium text-violet-300 hover:underline"
+              className="text-sm font-medium text-accent hover:underline"
             >
               See the full process →
             </Link>
@@ -178,7 +189,7 @@ export default function Home() {
       </section>
 
       {/* Audiences */}
-      <section className="border-t border-white/10 py-24">
+      <section className="hairline-b py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="Who it's for"
@@ -186,9 +197,14 @@ export default function Home() {
           />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {audiences.map((item) => (
-              <div key={item.title} className="rounded-2xl bg-white/[0.03] p-6">
-                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                <p className="mt-3 text-sm text-zinc-400">{item.description}</p>
+              <div
+                key={item.title}
+                className="border-l-2 border-accent/60 pl-5"
+              >
+                <h3 className="font-display text-lg text-paper">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm text-muted">{item.description}</p>
               </div>
             ))}
           </div>

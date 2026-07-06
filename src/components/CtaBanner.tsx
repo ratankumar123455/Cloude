@@ -16,23 +16,23 @@ export default function CtaBanner({
   secondaryLabel?: string;
 }) {
   return (
-    <section className="border-t border-white/10 py-24">
+    <section className="hairline-t py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="glow-border flex flex-col items-center gap-6 rounded-2xl bg-white/[0.03] p-10 text-center sm:p-14">
-          <p className="text-3xl font-semibold text-white sm:text-4xl">
+        <div className="surface flex flex-col items-center gap-6 rounded-sm p-10 text-center sm:p-14">
+          <p className="font-display text-3xl text-paper sm:text-4xl">
             {title}
           </p>
-          <p className="max-w-xl text-zinc-400">{description}</p>
+          <p className="max-w-xl text-muted">{description}</p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Link
               href={primaryHref}
-              className="rounded-full bg-gradient-to-r from-violet-500 to-sky-400 px-7 py-3 text-sm font-semibold text-black transition-opacity hover:opacity-90"
+              className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-90"
             >
               {primaryLabel}
             </Link>
             <Link
               href={secondaryHref}
-              className="glow-border rounded-full px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/5"
+              className="rounded-full border border-[var(--line)] px-7 py-3 text-sm font-semibold text-paper transition-colors hover:bg-white/5"
             >
               {secondaryLabel}
             </Link>

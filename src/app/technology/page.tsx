@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import CtaBanner from "@/components/CtaBanner";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Technology | Sutertai",
@@ -55,71 +56,64 @@ const responsibleUse = [
 export default function TechnologyPage() {
   return (
     <div>
-      <section className="border-b border-white/10 py-20">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="glow-border rounded-full px-4 py-1 text-xs uppercase tracking-widest text-violet-300">
-            Technology
-          </span>
-          <h1 className="mt-6 text-4xl font-semibold text-white sm:text-5xl">
-            The engine behind{" "}
-            <span className="gradient-text">Sutertai</span>
-          </h1>
-          <p className="mt-6 text-lg text-zinc-400">
-            Sutertai is built on generative AI models designed specifically
-            for turning text into images and video — here&apos;s how the
-            pipeline works, in plain language.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Technology"
+        title={
+          <>
+            The engine behind <span className="text-generated">Sutertai</span>
+          </>
+        }
+        description="Sutertai is built on generative AI models designed specifically for turning text into images and video — here's how the pipeline works, in plain language."
+      />
 
       <section className="py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading eyebrow="How it works" title="From prompt to pixel" />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {pipeline.map((item, i) => (
-              <div key={item.title} className="glow-border rounded-2xl bg-white/[0.03] p-6">
-                <span className="text-sm font-semibold text-violet-300">
+              <div key={item.title} className="hairline-t pt-6">
+                <span className="font-display text-3xl text-accent">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="mt-3 text-lg font-semibold text-white">{item.title}</h3>
-                <p className="mt-2 text-sm text-zinc-400">{item.description}</p>
+                <h3 className="font-display mt-3 text-lg text-paper">{item.title}</h3>
+                <p className="mt-2 text-sm text-muted">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-white/10 py-24">
+      <section className="hairline-t py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="Infrastructure"
             title="Built for speed and scale"
             description="The same infrastructure that powers a single image generation on our site powers API requests from teams building on top of Sutertai."
           />
-          <div className="grid gap-6 sm:grid-cols-3">
+          <div className="grid gap-8 sm:grid-cols-3">
             {infrastructure.map((item) => (
-              <div key={item.title} className="rounded-2xl bg-white/[0.03] p-6">
-                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                <p className="mt-3 text-sm text-zinc-400">{item.description}</p>
+              <div key={item.title} className="border-l-2 border-accent/60 pl-5">
+                <h3 className="font-display text-lg text-paper">{item.title}</h3>
+                <p className="mt-3 text-sm text-muted">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-white/10 py-24">
+      <section className="hairline-t py-24">
         <div className="mx-auto max-w-4xl px-6">
           <SectionHeading
             eyebrow="Responsible AI"
             title="Safety is part of the pipeline, not an afterthought"
           />
-          <ul className="space-y-4">
+          <ul className="hairline-t">
             {responsibleUse.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-3 rounded-2xl bg-white/[0.03] p-5 text-sm text-zinc-300"
+                className="hairline-b flex items-start gap-3 py-5 text-sm text-muted"
               >
-                <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-violet-400 to-sky-400" />
+                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                 {item}
               </li>
             ))}

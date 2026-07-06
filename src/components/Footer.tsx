@@ -10,11 +10,12 @@ const siteLinks = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-[#05050a]">
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 text-sm text-zinc-400 sm:grid-cols-3">
+    <footer className="hairline-t bg-ink">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 text-sm text-muted sm:grid-cols-3">
         <div>
-          <p className="text-base font-semibold text-white">
-            Suter<span className="gradient-text">tai</span> Private Limited
+          <p className="font-display text-lg text-paper">
+            Suter<span className="text-generated font-semibold">tai</span>{" "}
+            Private Limited
           </p>
           <p className="mt-3 max-w-xs">
             A generative AI company building text-to-image and text-to-video
@@ -23,11 +24,11 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="font-medium text-zinc-200">Site</p>
-          <ul className="mt-3 space-y-2">
+          <p className="mono-label text-[11px] text-paper">Site</p>
+          <ul className="mt-4 space-y-2">
             {siteLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="hover:text-white">
+                <Link href={link.href} className="hover:text-paper">
                   {link.label}
                 </Link>
               </li>
@@ -36,10 +37,10 @@ export default function Footer() {
         </div>
 
         <div>
-          <p className="font-medium text-zinc-200">Contact</p>
-          <p className="mt-3">Ramesh Sharma</p>
+          <p className="mono-label text-[11px] text-paper">Contact</p>
+          <p className="mt-4">Ramesh Sharma</p>
           <p>
-            <a href="tel:+917459887412" className="hover:text-white">
+            <a href="tel:+917459887412" className="hover:text-paper">
               +91 74598 87412
             </a>
           </p>
@@ -49,7 +50,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
-      <div className="border-t border-white/5 py-4 text-center text-xs text-zinc-500">
+      <div className="hairline-t py-4 text-center text-xs text-muted">
         © {new Date().getFullYear()} Sutertai Private Limited. All rights
         reserved.
       </div>

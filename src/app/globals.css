@@ -1,30 +1,74 @@
 @import "tailwindcss";
 
 :root {
-  --background: #05050a;
-  --foreground: #f4f4f5;
+  --ink: #0b0c0e;
+  --paper: #f4efe4;
+  --muted: #96938a;
+  --accent: #ff5a3c;
+  --line: rgba(244, 239, 228, 0.14);
+  --surface: rgba(244, 239, 228, 0.045);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-background: var(--ink);
+  --color-foreground: var(--paper);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-fraunces);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--ink);
+  color: var(--paper);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-.gradient-text {
-  background-image: linear-gradient(90deg, #a78bfa, #38bdf8);
+::selection {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.mono-label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* The signature: text literally rendered from a generated-image texture. */
+.text-generated {
+  background-image: radial-gradient(at 15% 20%, #ff8a5c 0%, transparent 55%),
+    radial-gradient(at 85% 10%, #ffd166 0%, transparent 50%),
+    radial-gradient(at 50% 90%, #ff3c78 0%, transparent 60%),
+    radial-gradient(at 95% 85%, #7c5cff 0%, transparent 55%),
+    radial-gradient(at 5% 85%, #2fd9c4 0%, transparent 55%);
+  background-color: var(--accent);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.glow-border {
-  border: 1px solid rgba(167, 139, 250, 0.25);
+.surface {
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.hairline-t {
+  border-top: 1px solid var(--line);
+}
+
+.hairline-b {
+  border-bottom: 1px solid var(--line);
 }

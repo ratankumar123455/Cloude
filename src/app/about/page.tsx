@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import CtaBanner from "@/components/CtaBanner";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "About Us | Sutertai",
@@ -64,65 +65,62 @@ const roadmap = [
 export default function AboutPage() {
   return (
     <div>
-      <section className="border-b border-white/10 py-20">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="glow-border rounded-full px-4 py-1 text-xs uppercase tracking-widest text-violet-300">
-            About us
-          </span>
-          <h1 className="mt-6 text-4xl font-semibold text-white sm:text-5xl">
+      <PageHero
+        eyebrow="About us"
+        title={
+          <>
             Building the future of{" "}
-            <span className="gradient-text">visual creation</span>
-          </h1>
-          <p className="mt-6 text-lg text-zinc-400">
-            Sutertai Private Limited is a generative AI company. We build
-            text-to-image and text-to-video products that turn written
-            descriptions into finished visuals.
-          </p>
-        </div>
-      </section>
+            <span className="text-generated">visual creation</span>
+          </>
+        }
+        description="Sutertai Private Limited is a generative AI company. We build text-to-image and text-to-video products that turn written descriptions into finished visuals."
+      />
 
       <section className="py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="grid gap-8 sm:grid-cols-2">
-            {missionVision.map((item) => (
-              <div key={item.title} className="glow-border rounded-2xl bg-white/[0.03] p-8">
-                <h3 className="text-2xl font-semibold text-white">{item.title}</h3>
-                <p className="mt-4 text-zinc-400">{item.description}</p>
+          <div className="grid gap-x-12 sm:grid-cols-2">
+            {missionVision.map((item, i) => (
+              <div
+                key={item.title}
+                className={`hairline-t pt-8 pb-8 sm:pb-0 ${i === 0 ? "sm:pr-12" : "sm:border-l sm:border-[var(--line)] sm:pl-12"}`}
+              >
+                <h3 className="font-display text-2xl text-paper">{item.title}</h3>
+                <p className="mt-4 text-muted">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-white/10 py-24">
+      <section className="hairline-t py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading eyebrow="What drives us" title="The principles behind what we build" />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((item) => (
-              <div key={item.title} className="rounded-2xl bg-white/[0.03] p-6">
-                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                <p className="mt-3 text-sm text-zinc-400">{item.description}</p>
+              <div key={item.title} className="border-l-2 border-accent/60 pl-5">
+                <h3 className="font-display text-lg text-paper">{item.title}</h3>
+                <p className="mt-3 text-sm text-muted">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-white/10 py-24">
+      <section className="hairline-t py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading eyebrow="Where we're headed" title="Our roadmap" />
-          <div className="space-y-6">
+          <div className="hairline-t">
             {roadmap.map((item) => (
               <div
                 key={item.label}
-                className="flex flex-col gap-4 rounded-2xl bg-white/[0.03] p-6 sm:flex-row sm:items-start"
+                className="hairline-b flex flex-col gap-4 py-8 sm:flex-row sm:items-start sm:gap-10"
               >
-                <span className="glow-border h-fit shrink-0 rounded-full px-4 py-1 text-xs font-semibold uppercase tracking-widest text-violet-300">
+                <span className="mono-label w-20 shrink-0 text-[11px] text-accent">
                   {item.label}
                 </span>
                 <div>
-                  <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-                  <p className="mt-2 text-sm text-zinc-400">{item.description}</p>
+                  <h3 className="font-display text-lg text-paper">{item.title}</h3>
+                  <p className="mt-2 text-sm text-muted">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -130,18 +128,18 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 py-24">
+      <section className="hairline-t py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="glow-border rounded-2xl bg-white/[0.03] p-10 sm:p-14">
-            <h2 className="text-sm font-semibold uppercase tracking-widest text-violet-300">
+          <div className="surface rounded-sm p-10 sm:p-14">
+            <p className="mono-label text-[11px] text-accent">
               Registered and operated in India
-            </h2>
-            <p className="mt-4 max-w-2xl text-zinc-400">
+            </p>
+            <p className="mt-4 max-w-2xl text-muted">
               Sutertai Private Limited is headquartered in Prayagraj, Uttar
               Pradesh, India, building generative AI products for creators
               and businesses everywhere.
             </p>
-            <p className="mt-4 text-white">
+            <p className="mt-4 text-paper">
               174 Kasturba Gandhi Marg, Kachehri, near Hawaijahaj, Prayagraj,
               Uttar Pradesh 211002, India
             </p>
@@ -149,7 +147,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 py-24">
+      <section className="hairline-t py-24">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <SectionHeading
             eyebrow="Our approach"

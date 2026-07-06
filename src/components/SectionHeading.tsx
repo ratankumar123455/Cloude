@@ -15,15 +15,11 @@ export default function SectionHeading({
         align === "center" ? "mx-auto text-center" : ""
       }`}
     >
-      <h2 className="text-sm font-semibold uppercase tracking-widest text-violet-300">
-        {eyebrow}
-      </h2>
-      <p className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
+      <p className="mono-label text-[11px] text-accent">{eyebrow}</p>
+      <p className="font-display mt-3 text-3xl text-paper sm:text-4xl">
         {title}
       </p>
-      {description && (
-        <p className="mt-4 text-zinc-400">{description}</p>
-      )}
+      {description && <p className="mt-4 text-muted">{description}</p>}
     </div>
   );
 }

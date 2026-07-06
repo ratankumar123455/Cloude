@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import CtaBanner from "@/components/CtaBanner";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "Team | Sutertai",
@@ -18,41 +19,35 @@ const team = [
 export default function TeamPage() {
   return (
     <div>
-      <section className="border-b border-white/10 py-20">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <span className="glow-border rounded-full px-4 py-1 text-xs uppercase tracking-widest text-violet-300">
-            Team
-          </span>
-          <h1 className="mt-6 text-4xl font-semibold text-white sm:text-5xl">
-            The people building{" "}
-            <span className="gradient-text">Sutertai</span>
-          </h1>
-          <p className="mt-6 text-lg text-zinc-400">
-            A small, focused team working on generative AI for image and
-            video creation.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Team"
+        title={
+          <>
+            The people building <span className="text-generated">Sutertai</span>
+          </>
+        }
+        description="A small, focused team working on generative AI for image and video creation."
+      />
 
       <section className="py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading eyebrow="Leadership" title="Meet the team" />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="hairline-t grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
             {team.map((member) => (
-              <div key={member.name} className="glow-border rounded-2xl bg-white/[0.03] p-6">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-violet-500 to-sky-400 text-xl font-semibold text-black">
+              <div key={member.name} className="hairline-b py-8">
+                <span className="font-display text-3xl text-accent">
                   {member.name
                     .split(" ")
                     .map((n) => n[0])
                     .join("")}
-                </div>
-                <h3 className="text-lg font-semibold text-white">{member.name}</h3>
-                <p className="text-sm text-violet-300">{member.role}</p>
-                <p className="mt-3 text-sm text-zinc-400">{member.bio}</p>
+                </span>
+                <h3 className="font-display mt-3 text-lg text-paper">{member.name}</h3>
+                <p className="mono-label mt-1 text-[11px] text-accent">{member.role}</p>
+                <p className="mt-3 text-sm text-muted">{member.bio}</p>
               </div>
             ))}
-            <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-white/10 p-6 text-center">
-              <p className="text-sm text-zinc-400">
+            <div className="hairline-b flex flex-col justify-center py-8">
+              <p className="text-sm text-muted">
                 We&apos;re growing. More team members will be added here soon.
               </p>
             </div>

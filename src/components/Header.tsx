@@ -18,25 +18,25 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#05050a]/80 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <header className="hairline-b sticky top-0 z-50 bg-ink/90 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-white"
+          className="font-display text-xl tracking-tight text-paper"
           onClick={() => setOpen(false)}
         >
-          Suter<span className="gradient-text">tai</span>
+          Suter<span className="text-generated font-semibold">tai</span>
         </Link>
 
-        <nav className="hidden gap-6 text-sm text-zinc-300 lg:flex">
+        <nav className="mono-label hidden gap-7 text-[11px] text-muted lg:flex">
           {navItems.map((item) => {
             const active = pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`transition-colors hover:text-white ${
-                  active ? "text-white" : ""
+                className={`border-b pb-1 transition-colors hover:text-paper ${
+                  active ? "border-accent text-paper" : "border-transparent"
                 }`}
               >
                 {item.label}
@@ -48,7 +48,7 @@ export default function Header() {
         <div className="hidden lg:block">
           <Link
             href="/generate"
-            className="rounded-full bg-gradient-to-r from-violet-500 to-sky-400 px-5 py-2 text-sm font-medium text-black transition-opacity hover:opacity-90"
+            className="rounded-full bg-accent px-5 py-2 text-sm font-medium text-ink transition-opacity hover:opacity-90"
           >
             Try the generator
           </Link>
@@ -58,21 +58,21 @@ export default function Header() {
           type="button"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
-          className="glow-border flex h-10 w-10 items-center justify-center rounded-full text-white lg:hidden"
+          className="mono-label flex h-10 w-10 items-center justify-center rounded-full border border-[var(--line)] text-paper lg:hidden"
         >
           {open ? "×" : "≡"}
         </button>
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-white/10 bg-[#05050a] px-6 py-4 lg:hidden">
+        <nav className="hairline-t flex flex-col gap-1 bg-ink px-6 py-4 lg:hidden">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className={`rounded-lg px-3 py-2 text-sm transition-colors hover:bg-white/5 hover:text-white ${
-                pathname === item.href ? "text-white" : "text-zinc-300"
+              className={`mono-label rounded-lg px-3 py-2 text-xs transition-colors hover:bg-white/5 hover:text-paper ${
+                pathname === item.href ? "text-paper" : "text-muted"
               }`}
             >
               {item.label}
@@ -81,7 +81,7 @@ export default function Header() {
           <Link
             href="/generate"
             onClick={() => setOpen(false)}
-            className="mt-2 rounded-full bg-gradient-to-r from-violet-500 to-sky-400 px-5 py-2 text-center text-sm font-medium text-black"
+            className="mt-2 rounded-full bg-accent px-5 py-2 text-center text-sm font-medium text-ink"
           >
             Try the generator
           </Link>

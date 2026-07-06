@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import CtaBanner from "@/components/CtaBanner";
+import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
   title: "How We Work | Sutertai",
@@ -52,56 +53,54 @@ const videoWorkflow = [
 export default function HowWeWorkPage() {
   return (
     <div>
-      <section className="border-b border-white/10 py-20">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h1 className="text-4xl font-semibold text-white sm:text-5xl">
-            How <span className="gradient-text">Sutertai</span> works
-          </h1>
-          <p className="mt-6 text-lg text-zinc-400">
-            From a written idea to a finished image or video, here&apos;s
-            what happens behind the scenes when you use Sutertai.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="How we work"
+        title={
+          <>
+            How <span className="text-generated">Sutertai</span> works
+          </>
+        }
+        description="From a written idea to a finished image or video, here's what happens behind the scenes when you use Sutertai."
+      />
 
-      <section className="py-24">
+      <section className="hairline-b py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading eyebrow="The process" title="Four steps, start to finish" />
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {detailedSteps.map((item) => (
-              <div key={item.step} className="glow-border rounded-2xl bg-white/[0.03] p-6">
-                <span className="text-sm font-semibold text-violet-300">
+              <div key={item.step} className="hairline-t pt-6">
+                <span className="font-display text-3xl text-accent">
                   {item.step}
                 </span>
-                <h3 className="mt-3 text-lg font-semibold text-white">
+                <h3 className="font-display mt-3 text-lg text-paper">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-zinc-400">{item.description}</p>
+                <p className="mt-2 text-sm text-muted">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-t border-white/10 py-24">
+      <section className="hairline-b py-24">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 sm:grid-cols-2">
-          <div className="rounded-2xl bg-white/[0.03] p-8">
-            <h3 className="text-2xl font-semibold text-white">Image workflow</h3>
+          <div>
+            <h3 className="font-display text-2xl text-paper">Image workflow</h3>
             <ol className="mt-6 space-y-4">
               {imageWorkflow.map((item, i) => (
-                <li key={item} className="flex gap-3 text-sm text-zinc-300">
-                  <span className="font-semibold text-violet-300">{i + 1}.</span>
+                <li key={item} className="flex gap-3 text-sm text-muted">
+                  <span className="font-display text-accent">{i + 1}.</span>
                   {item}
                 </li>
               ))}
             </ol>
           </div>
-          <div className="rounded-2xl bg-white/[0.03] p-8">
-            <h3 className="text-2xl font-semibold text-white">Video workflow</h3>
+          <div>
+            <h3 className="font-display text-2xl text-paper">Video workflow</h3>
             <ol className="mt-6 space-y-4">
               {videoWorkflow.map((item, i) => (
-                <li key={item} className="flex gap-3 text-sm text-zinc-300">
-                  <span className="font-semibold text-violet-300">{i + 1}.</span>
+                <li key={item} className="flex gap-3 text-sm text-muted">
+                  <span className="font-display text-accent">{i + 1}.</span>
                   {item}
                 </li>
               ))}
@@ -110,7 +109,7 @@ export default function HowWeWorkPage() {
         </div>
       </section>
 
-      <section className="border-t border-white/10 py-24">
+      <section className="hairline-b py-24">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <SectionHeading
             eyebrow="Quality and control"
