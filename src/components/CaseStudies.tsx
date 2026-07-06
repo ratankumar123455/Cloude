@@ -4,7 +4,7 @@ import SectionHeading from "./SectionHeading";
 const cases = [
   {
     tag: "Marketing Agency",
-    metric: "80%",
+    metric: "84%",
     metricLabel: "less production time",
     title: "Fieldnote Agency cut campaign turnaround from weeks to days",
     description:
@@ -12,7 +12,7 @@ const cases = [
   },
   {
     tag: "E-commerce",
-    metric: "20,000+",
+    metric: "200,000+",
     metricLabel: "product images generated",
     title: "Meridian Goods scaled catalog photography without a studio",
     description:
@@ -20,11 +20,19 @@ const cases = [
   },
   {
     tag: "Architecture",
-    metric: "3 days",
-    metricLabel: "from concept to client-ready render",
+    metric: "150+",
+    metricLabel: "3D visualizations delivered",
     title: "Blueprint House pitches concepts before the first model is built",
     description:
-      "Early-stage renders that used to wait for a 3D pass now go out same-week, giving Blueprint House more shots at winning a pitch.",
+      "Early-stage renders and walkthroughs that used to wait for a 3D pass now go out same-week, giving Blueprint House more shots at winning a pitch.",
+  },
+  {
+    tag: "Media & Entertainment",
+    metric: "12x",
+    metricLabel: "faster video production",
+    title: "Novara Studio produces more video with the same team",
+    description:
+      "Text to Video handles first-pass storyboarding and previsualization, so Novara's editors spend their time finishing cuts instead of starting them from scratch.",
   },
 ];
 
@@ -36,7 +44,7 @@ export default function CaseStudies() {
           eyebrow="Case studies"
           title="What teams build with Sutertai"
         />
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2">
           {cases.map((item, i) => (
             <Reveal
               key={item.title}

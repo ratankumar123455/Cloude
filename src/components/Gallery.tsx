@@ -6,37 +6,37 @@ const tiles = [
     label: "Product photography",
     span: "lg:col-span-4 lg:row-span-2",
     height: "h-64 lg:h-full",
-    tone: "linear-gradient(155deg, rgba(31,169,113,0.55), rgba(27,36,38,0.95) 65%)",
+    tone: "linear-gradient(155deg, rgba(91,95,255,0.55), rgba(27,36,38,0.95) 65%)",
   },
   {
     label: "Architecture render",
     span: "lg:col-span-4",
     height: "h-48",
-    tone: "linear-gradient(155deg, rgba(52,211,199,0.4), rgba(27,36,38,0.95) 65%)",
+    tone: "linear-gradient(155deg, rgba(0,229,255,0.4), rgba(27,36,38,0.95) 65%)",
   },
   {
     label: "Fashion editorial",
     span: "lg:col-span-4",
     height: "h-48",
-    tone: "linear-gradient(155deg, rgba(74,222,147,0.45), rgba(27,36,38,0.95) 65%)",
+    tone: "linear-gradient(155deg, rgba(139,92,246,0.45), rgba(27,36,38,0.95) 65%)",
   },
   {
     label: "Concept art",
     span: "lg:col-span-4",
     height: "h-48",
-    tone: "linear-gradient(155deg, rgba(31,169,113,0.3), rgba(52,211,199,0.25) 60%, rgba(27,36,38,0.95))",
+    tone: "linear-gradient(155deg, rgba(91,95,255,0.3), rgba(0,229,255,0.25) 60%, rgba(27,36,38,0.95))",
   },
   {
     label: "Motion & video frame",
     span: "lg:col-span-4",
     height: "h-48",
-    tone: "linear-gradient(155deg, rgba(52,211,199,0.5), rgba(27,36,38,0.95) 65%)",
+    tone: "linear-gradient(155deg, rgba(0,229,255,0.5), rgba(27,36,38,0.95) 65%)",
   },
   {
     label: "Brand campaign",
     span: "lg:col-span-4",
     height: "h-48",
-    tone: "linear-gradient(155deg, rgba(31,169,113,0.5), rgba(27,36,38,0.95) 65%)",
+    tone: "linear-gradient(155deg, rgba(91,95,255,0.5), rgba(27,36,38,0.95) 65%)",
   },
 ];
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope, Space_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Manrope, Space_Mono } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CursorGlow from "@/components/CursorGlow";
@@ -17,10 +17,9 @@ const spaceMono = Space_Mono({
   weight: ["400", "700"],
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const displayGrotesque = Bricolage_Grotesque({
+  variable: "--font-display-grotesque",
   subsets: ["latin"],
-  axes: ["opsz", "SOFT", "WONK"],
 });
 
 const siteUrl = "https://www.sutertai.com";
@@ -117,7 +116,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${manrope.variable} ${spaceMono.variable} ${fraunces.variable} h-full antialiased`}
+      className={`${manrope.variable} ${spaceMono.variable} ${displayGrotesque.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-ink text-paper">
         <script

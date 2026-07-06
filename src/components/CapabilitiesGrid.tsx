@@ -6,37 +6,37 @@ const capabilities = [
     tag: "Image",
     title: "Text to Image",
     description: "Photorealistic images, illustration, and product visuals.",
-    tone: "linear-gradient(150deg, rgba(31,169,113,0.5), rgba(27,36,38,0.92) 70%)",
+    tone: "linear-gradient(150deg, rgba(91,95,255,0.5), rgba(27,36,38,0.92) 70%)",
   },
   {
     tag: "Video",
     title: "Text to Video",
     description: "Short-form and cinematic video from a written script.",
-    tone: "linear-gradient(150deg, rgba(52,211,199,0.4), rgba(27,36,38,0.92) 70%)",
+    tone: "linear-gradient(150deg, rgba(0,229,255,0.4), rgba(27,36,38,0.92) 70%)",
   },
   {
     tag: "Edit",
     title: "AI Editing",
     description: "Inpainting, outpainting, and background removal, built in.",
-    tone: "linear-gradient(150deg, rgba(74,222,147,0.45), rgba(27,36,38,0.92) 70%)",
+    tone: "linear-gradient(150deg, rgba(139,92,246,0.45), rgba(27,36,38,0.92) 70%)",
   },
   {
     tag: "Resolution",
     title: "Upscaling",
     description: "Clean 4K output ready for print and broadcast.",
-    tone: "linear-gradient(150deg, rgba(31,169,113,0.3), rgba(52,211,199,0.2) 60%, rgba(27,36,38,0.92))",
+    tone: "linear-gradient(150deg, rgba(91,95,255,0.3), rgba(0,229,255,0.2) 60%, rgba(27,36,38,0.92))",
   },
   {
     tag: "Build",
     title: "API",
     description: "Every capability available through a documented REST API.",
-    tone: "linear-gradient(150deg, rgba(52,211,199,0.25), rgba(27,36,38,0.92) 70%)",
+    tone: "linear-gradient(150deg, rgba(0,229,255,0.25), rgba(27,36,38,0.92) 70%)",
   },
   {
     tag: "Compute",
     title: "Cloud Rendering",
     description: "Auto-scaling render capacity with no local GPU required.",
-    tone: "linear-gradient(150deg, rgba(31,169,113,0.22), rgba(27,36,38,0.92) 70%)",
+    tone: "linear-gradient(150deg, rgba(91,95,255,0.22), rgba(27,36,38,0.92) 70%)",
   },
 ];
 

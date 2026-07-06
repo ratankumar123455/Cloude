@@ -7,28 +7,28 @@ const testimonials = [
       "We stopped briefing stock photo libraries and started briefing Sutertai. The output is closer to what the client actually asked for, on the first pass.",
     name: "Aditi Rao",
     role: "Creative Director, Fieldnote Agency",
-    tone: "linear-gradient(150deg, rgba(31,169,113,0.9), rgba(27,36,38,0.9))",
+    tone: "linear-gradient(150deg, rgba(91,95,255,0.9), rgba(27,36,38,0.9))",
   },
   {
     quote:
       "The API meant our engineers could wire generation straight into our listing pipeline. It wasn't a separate tool bolted onto our workflow — it was infrastructure.",
     name: "Karan Mehta",
     role: "Founder, Meridian Goods",
-    tone: "linear-gradient(150deg, rgba(52,211,199,0.85), rgba(27,36,38,0.9))",
+    tone: "linear-gradient(150deg, rgba(0,229,255,0.85), rgba(27,36,38,0.9))",
   },
   {
     quote:
       "Client-ready renders in days instead of weeks changed how many concepts we can afford to explore before committing to one.",
     name: "Priya Nair",
     role: "Marketing Head, Blueprint House",
-    tone: "linear-gradient(150deg, rgba(74,222,147,0.85), rgba(27,36,38,0.9))",
+    tone: "linear-gradient(150deg, rgba(139,92,246,0.85), rgba(27,36,38,0.9))",
   },
   {
     quote:
       "Consistency across a few thousand generations is the hard part. Style locking is the one feature I'd fight to keep.",
     name: "Devansh Iyer",
     role: "Product Manager, Novara Studio",
-    tone: "linear-gradient(150deg, rgba(31,169,113,0.6), rgba(52,211,199,0.5))",
+    tone: "linear-gradient(150deg, rgba(91,95,255,0.6), rgba(0,229,255,0.5))",
   },
 ];
 

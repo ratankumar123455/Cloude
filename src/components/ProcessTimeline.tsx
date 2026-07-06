@@ -29,7 +29,7 @@ const steps = [
           className="h-24 rounded-lg"
           style={{
             backgroundImage:
-              "linear-gradient(135deg, rgba(31,169,113,0.5), rgba(52,211,199,0.25) 60%, rgba(27,36,38,0.92))",
+              "linear-gradient(135deg, rgba(91,95,255,0.5), rgba(0,229,255,0.25) 60%, rgba(27,36,38,0.92))",
           }}
         />
         <div className="mt-3 flex items-center gap-2">
@@ -43,7 +43,7 @@ const steps = [
   },
   {
     step: "03",
-    title: "Customize the result",
+    title: "Refine the result",
     description: "Nudge lighting, style, or composition without rewriting the prompt.",
     visual: (
       <div className="space-y-3">
@@ -66,7 +66,7 @@ const steps = [
   },
   {
     step: "04",
-    title: "Export & integrate",
+    title: "Export",
     description: "Production-ready output, or pipe it straight into your app via API.",
     visual: (
       <div className="flex flex-wrap gap-2">
@@ -81,6 +81,23 @@ const steps = [
       </div>
     ),
   },
+  {
+    step: "05",
+    title: "Deploy",
+    description: "Push the finished asset live, or wire the workflow into your pipeline via API.",
+    visual: (
+      <div className="flex items-center justify-between">
+        <div>
+          <p className="mono-label text-[9px] text-muted-2">Environment</p>
+          <p className="mt-1 text-sm text-paper">Production</p>
+        </div>
+        <span className="flex items-center gap-2">
+          <span className="status-dot" />
+          <span className="mono-label text-[10px] text-scope">Live</span>
+        </span>
+      </div>
+    ),
+  },
 ];
 
 export default function ProcessTimeline() {
@@ -89,7 +106,7 @@ export default function ProcessTimeline() {
       <div className="mx-auto max-w-5xl px-6">
         <SectionHeading
           eyebrow="Process"
-          title="From idea to finished asset in four steps"
+          title="From idea to finished asset in five steps"
         />
         <div className="hairline-t">
           {steps.map((item, i) => (
