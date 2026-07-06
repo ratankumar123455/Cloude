@@ -7,11 +7,22 @@ import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
 import HeroVisual from "@/components/HeroVisual";
 import WhySutertai from "@/components/WhySutertai";
+import CapabilitiesGrid from "@/components/CapabilitiesGrid";
+import ProcessTimeline from "@/components/ProcessTimeline";
+import TechPanel from "@/components/TechPanel";
+import ScaleChart from "@/components/ScaleChart";
 import Industries from "@/components/Industries";
 import CaseStudies from "@/components/CaseStudies";
 import Testimonials from "@/components/Testimonials";
 import Pricing from "@/components/Pricing";
 import Faq from "@/components/Faq";
+
+const heroStats = [
+  { value: "50K+", label: "Assets shipped" },
+  { value: "800+", label: "Teams onboard" },
+  { value: "99.9%", label: "Render uptime" },
+  { value: "4.9/5", label: "Studio rating" },
+];
 
 const products = [
   {
@@ -38,22 +49,6 @@ const products = [
       "One workspace for image, video, editing, prompts, and assets — with an enterprise dashboard and API access when your team is ready to scale.",
     href: "/technology#ai-studio",
   },
-];
-
-const capabilities = [
-  { tag: "Image", title: "Text to Image", description: "Photorealistic images, illustration, and product visuals." },
-  { tag: "Video", title: "Text to Video", description: "Short-form and cinematic video from a written script." },
-  { tag: "Edit", title: "AI Editing", description: "Inpainting, outpainting, and background removal, built in." },
-  { tag: "Resolution", title: "Upscaling", description: "Clean 4K output ready for print and broadcast." },
-  { tag: "Build", title: "API", description: "Every capability available through a documented REST API." },
-  { tag: "Compute", title: "Cloud Rendering", description: "Auto-scaling render capacity with no local GPU required." },
-];
-
-const steps = [
-  { step: "01", title: "Prompt", description: "Describe what you want to see, in plain language." },
-  { step: "02", title: "Generate", description: "Sutertai's models render your prompt into an image or video." },
-  { step: "03", title: "Edit", description: "Adjust composition, style, or motion until it matches your intent." },
-  { step: "04", title: "Export", description: "Download in a format ready for your platform, at production resolution." },
 ];
 
 export default function Home() {
@@ -98,6 +93,14 @@ export default function Home() {
               <MagneticLink href="/how-we-work" variant="secondary">
                 See how it works
               </MagneticLink>
+            </Reveal>
+            <Reveal delay={300} className="mt-12 grid w-full max-w-lg grid-cols-4 gap-4 border-t border-[var(--line)] pt-6">
+              {heroStats.map((stat) => (
+                <div key={stat.label}>
+                  <p className="font-display text-xl text-paper sm:text-2xl">{stat.value}</p>
+                  <p className="mono-label mt-1 text-[9px] text-muted-2">{stat.label}</p>
+                </div>
+              ))}
             </Reveal>
           </div>
           <Reveal delay={200} className="hidden lg:block">
@@ -194,63 +197,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How it works */}
-      <section className="hairline-b py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading
-            eyebrow="Process"
-            title="From idea to finished asset in four steps"
-          />
-          <div className="hairline-t grid gap-x-8 gap-y-10 pt-10 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((item, i) => (
-              <Reveal key={item.step} delay={i * 80}>
-                <span className="font-display text-3xl text-generated">
-                  {item.step}
-                </span>
-                <h3 className="font-display mt-3 text-lg text-paper">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted">{item.description}</p>
-              </Reveal>
-            ))}
-          </div>
-          <div className="mt-10">
-            <Link
-              href="/how-we-work"
-              className="text-sm font-medium text-accent hover:underline"
-            >
-              See the full process →
-            </Link>
-          </div>
-        </div>
-      </section>
-
       <WhySutertai />
-
-      {/* AI Capabilities */}
-      <section className="hairline-b section-tint py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading
-            eyebrow="Capabilities"
-            title="Every way to create a visual, in one platform"
-          />
-          <div className="hairline-t grid sm:grid-cols-2 lg:grid-cols-3 [&>div]:border-b [&>div]:border-[var(--line)] [&>div]:py-7 lg:[&>div:not(:nth-child(3n))]:border-r lg:[&>div:not(:nth-child(3n))]:pr-8 lg:[&>div:not(:nth-child(3n))]:border-[var(--line)]">
-            {capabilities.map((item, i) => (
-              <Reveal key={item.title} delay={i * 40} className="flex flex-col gap-2 lg:pl-8">
-                <span className="mono-label text-[10px] text-accent">
-                  {item.tag}
-                </span>
-                <h3 className="font-display text-xl text-paper">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-muted">{item.description}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      <CapabilitiesGrid />
+      <ProcessTimeline />
       <Industries />
+      <TechPanel />
+      <ScaleChart />
       <CaseStudies />
       <Testimonials />
       <Pricing />
