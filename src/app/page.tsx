@@ -65,7 +65,7 @@ export default function Home() {
           className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[720px]"
           style={{
             background:
-              "radial-gradient(800px circle at 15% -10%, rgba(79,70,229,0.32), transparent 60%), radial-gradient(800px circle at 90% 15%, rgba(124,58,237,0.26), transparent 55%)",
+              "radial-gradient(800px circle at 15% -10%, rgba(232,100,44,0.22), transparent 60%), radial-gradient(800px circle at 90% 15%, rgba(143,227,176,0.12), transparent 55%)",
           }}
           aria-hidden="true"
         />
@@ -73,10 +73,8 @@ export default function Home() {
           <div className="flex flex-col items-start">
             <Reveal>
               <span className="eyebrow-chip">
-                <span className="dot" aria-hidden="true" />
-                <span className="mono-label text-[10px] text-paper">
-                  Sutertai Private Limited · Generative AI
-                </span>
+                <span className="dot">/</span>
+                <span>Sutertai Private Limited — Generative AI</span>
               </span>
             </Reveal>
             <Reveal delay={80}>
@@ -123,7 +121,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Products */}
+      {/* Products — asymmetric contact sheet, not a uniform 3-card grid */}
       <section id="products" className="hairline-b py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
@@ -131,25 +129,62 @@ export default function Home() {
             title="Three products. One generation engine."
             description="Everything Sutertai builds runs on the same core model — tuned for image, for video, and for teams running both at scale."
           />
-          <div className="grid gap-6 lg:grid-cols-3">
-            {products.map((product, i) => (
+          <div className="grid gap-6 lg:grid-cols-12">
+            <Reveal
+              delay={0}
+              className="card-lift flex flex-col justify-between rounded-2xl border border-[var(--line)] p-8 lg:col-span-7 lg:row-span-2"
+            >
+              <div>
+                <div className="flex items-baseline justify-between">
+                  <span className="mono-label text-[10px] text-accent">
+                    {products[0].tag}
+                  </span>
+                  <span className="mono-label text-[10px] text-muted-2">01 / 03</span>
+                </div>
+                <h3 className="font-display mt-4 text-3xl text-paper">
+                  {products[0].title}
+                </h3>
+                <p className="mt-4 max-w-md text-sm text-muted">{products[0].description}</p>
+              </div>
+              <div
+                className="mt-8 h-40 w-full rounded-xl"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(150deg, rgba(232,100,44,0.4), rgba(27,36,38,0.9) 70%)",
+                }}
+                aria-hidden="true"
+              />
+              <Link
+                href={products[0].href}
+                className="mt-8 text-sm font-medium text-accent hover:underline"
+              >
+                Explore Text to Image →
+              </Link>
+            </Reveal>
+
+            {products.slice(1).map((product, i) => (
               <Reveal
                 key={product.id}
-                delay={i * 80}
-                className="card-lift flex flex-col justify-between rounded-2xl border border-[var(--line)] p-8"
+                delay={(i + 1) * 80}
+                className="card-lift flex flex-col justify-between rounded-2xl border border-[var(--line)] p-7 lg:col-span-5"
               >
                 <div>
-                  <span className="mono-label text-[10px] text-accent">
-                    {product.tag}
-                  </span>
-                  <h3 className="font-display mt-4 text-2xl text-paper">
+                  <div className="flex items-baseline justify-between">
+                    <span className="mono-label text-[10px] text-accent">
+                      {product.tag}
+                    </span>
+                    <span className="mono-label text-[10px] text-muted-2">
+                      {String(i + 2).padStart(2, "0")} / 03
+                    </span>
+                  </div>
+                  <h3 className="font-display mt-3 text-xl text-paper">
                     {product.title}
                   </h3>
                   <p className="mt-3 text-sm text-muted">{product.description}</p>
                 </div>
                 <Link
                   href={product.href}
-                  className="mt-8 text-sm font-medium text-accent hover:underline"
+                  className="mt-6 text-sm font-medium text-accent hover:underline"
                 >
                   Explore {product.title.split(" ")[0]} →
                 </Link>

@@ -1,52 +1,81 @@
+const frames = [
+  { id: "01", tone: "linear-gradient(150deg, rgba(232,100,44,0.5), rgba(27,36,38,0.92) 70%)" },
+  { id: "02", tone: "linear-gradient(150deg, rgba(143,227,176,0.35), rgba(27,36,38,0.92) 70%)" },
+  { id: "03", tone: "linear-gradient(150deg, rgba(255,131,71,0.55), rgba(27,36,38,0.92) 70%)", active: true },
+  { id: "04", tone: "linear-gradient(150deg, rgba(232,100,44,0.25), rgba(27,36,38,0.92) 70%)" },
+];
+
 export default function HeroVisual() {
   return (
-    <div className="relative mx-auto h-[420px] w-full max-w-md lg:mx-0">
+    <div className="relative mx-auto w-full max-w-md py-12 lg:mx-0">
       <div
         className="absolute -inset-16 -z-10 blur-3xl"
         style={{
           background:
-            "radial-gradient(220px circle at 30% 20%, rgba(99,102,241,0.55), transparent 65%), radial-gradient(260px circle at 80% 70%, rgba(167,139,250,0.45), transparent 65%)",
+            "radial-gradient(220px circle at 30% 20%, rgba(232,100,44,0.35), transparent 65%), radial-gradient(260px circle at 80% 70%, rgba(143,227,176,0.18), transparent 65%)",
         }}
         aria-hidden="true"
       />
 
-      {/* Main glass panel: mock generation UI */}
-      <div className="glass-panel absolute inset-x-4 top-8 rounded-2xl p-5">
+      <div className="glass-panel rounded-2xl p-5">
         <div className="flex items-center justify-between">
-          <span className="mono-label text-[9px] text-muted-2">sutertai.studio</span>
-          <span className="flex gap-1.5">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--violet-bright)]/70" />
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--indigo-bright)]/70" />
+          <span className="mono-label text-[9px] text-muted-2">sutertai / light table</span>
+          <span className="flex items-center gap-1.5">
+            <span className="status-dot" />
+            <span className="mono-label text-[9px] text-scope">live</span>
           </span>
         </div>
-        <p className="mono-label mt-4 text-[9px] text-muted-2">Prompt</p>
-        <p className="mt-1 text-sm text-paper">
-          “Product photo, ceramic bottle, studio light, 8k”
-        </p>
-        <div
-          className="mt-5 h-40 w-full rounded-xl"
-          style={{
-            backgroundImage:
-              "linear-gradient(135deg, rgba(99,102,241,0.55), rgba(167,139,250,0.4) 45%, rgba(17,24,39,0.9))",
-          }}
-          aria-hidden="true"
-        />
-        <div className="mt-4 flex items-center gap-2">
-          <span className="h-1 flex-1 overflow-hidden rounded-full bg-white/10">
-            <span className="block h-full w-3/4 rounded-full bg-gradient-brand" />
-          </span>
-          <span className="mono-label text-[9px] text-muted-2">4.2s</span>
+
+        {/* sprocket ticks */}
+        <div className="mt-4 flex justify-between px-1">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <span key={i} className="h-1 w-1 rounded-full bg-[var(--line-strong)]" />
+          ))}
+        </div>
+
+        <div className="mt-2 grid grid-cols-4 gap-2">
+          {frames.map((frame) => (
+            <div key={frame.id} className="relative">
+              <div
+                className="h-20 rounded-md border"
+                style={{
+                  backgroundImage: frame.tone,
+                  borderColor: frame.active ? "var(--signal)" : "var(--line)",
+                  boxShadow: frame.active ? "0 0 0 2px rgba(232,100,44,0.25)" : "none",
+                }}
+              />
+              <p className="mono-label mt-1.5 text-[8.5px] text-muted-2">{frame.id}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-2 flex justify-between px-1">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <span key={i} className="h-1 w-1 rounded-full bg-[var(--line-strong)]" />
+          ))}
+        </div>
+
+        <div className="mt-5 flex items-center justify-between border-t border-[var(--line)] pt-4">
+          <div>
+            <p className="mono-label text-[9px] text-muted-2">Prompt — frame 03</p>
+            <p className="mt-1 max-w-[220px] text-[13px] text-paper">
+              “Ceramic bottle, golden hour, 85mm, shallow depth of field”
+            </p>
+          </div>
+          <div className="text-right">
+            <p className="mono-label text-[9px] text-muted-2">seed</p>
+            <p className="font-display mt-1 text-sm text-generated">048231</p>
+          </div>
         </div>
       </div>
 
-      {/* Floating chips */}
-      <div className="glass-panel absolute -left-2 bottom-16 float-slow rounded-xl px-4 py-3">
-        <p className="mono-label text-[9px] text-muted-2">Video</p>
-        <p className="mt-1 text-sm text-paper">Motion synced</p>
+      <div className="glass-panel absolute left-2 bottom-0 float-slow rounded-xl px-4 py-3">
+        <p className="mono-label text-[9px] text-muted-2">Exposure</p>
+        <p className="mt-1 text-sm text-paper">4.2s / frame</p>
       </div>
-      <div className="glass-panel absolute -right-4 top-2 float-slow-delayed rounded-xl px-4 py-3">
-        <p className="mono-label text-[9px] text-muted-2">API</p>
-        <p className="mt-1 text-sm text-paper">99.9% uptime</p>
+      <div className="glass-panel absolute right-2 top-0 float-slow-delayed rounded-xl px-4 py-3">
+        <p className="mono-label text-[9px] text-muted-2">Uptime</p>
+        <p className="mt-1 text-sm text-paper">99.9%</p>
       </div>
     </div>
   );

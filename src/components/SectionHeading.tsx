@@ -17,9 +17,9 @@ export default function SectionHeading({
         align === "center" ? "mx-auto text-center" : ""
       }`}
     >
-      <span className={`eyebrow-chip ${align === "center" ? "" : ""}`}>
-        <span className="dot" aria-hidden="true" />
-        <span className="mono-label text-[10px] text-paper">{eyebrow}</span>
+      <span className={`eyebrow-chip ${align === "center" ? "mx-auto" : ""}`}>
+        <span className="dot">/</span>
+        <span>{eyebrow}</span>
       </span>
       <p className="font-display mt-5 text-4xl font-medium text-paper sm:text-5xl">
         {title}
