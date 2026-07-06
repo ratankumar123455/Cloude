@@ -19,7 +19,7 @@ const tiers = [
     featured: false,
   },
   {
-    name: "Pro",
+    name: "Professional",
     price: "$49",
     period: "per month",
     description: "For creators and small teams shipping regularly.",
@@ -30,7 +30,7 @@ const tiers = [
       "Brand style presets",
       "Priority render queue",
     ],
-    cta: "Start Pro trial",
+    cta: "Start Professional trial",
     href: "/generate",
     featured: true,
   },

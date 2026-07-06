@@ -171,13 +171,13 @@ export default function TechnologyPage() {
           <SectionHeading eyebrow="How it works" title="From prompt to pixel" />
           <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {pipeline.map((item, i) => (
-              <div key={item.title} className="hairline-t pt-6">
-                <span className="font-display text-3xl text-accent">
+              <Reveal key={item.title} delay={i * 60} className="hairline-t pt-6">
+                <span className="font-display text-3xl text-generated">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="font-display mt-3 text-lg text-paper">{item.title}</h3>
                 <p className="mt-2 text-sm text-muted">{item.description}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -191,11 +191,11 @@ export default function TechnologyPage() {
             description="The same infrastructure that powers a single image generation on our site powers API requests from teams building on top of Sutertai."
           />
           <div className="grid gap-8 sm:grid-cols-3">
-            {infrastructure.map((item) => (
-              <div key={item.title} className="border-l-2 border-accent/60 pl-5">
+            {infrastructure.map((item, i) => (
+              <Reveal key={item.title} delay={i * 60} className="border-l-2 border-accent/60 pl-5">
                 <h3 className="font-display text-lg text-paper">{item.title}</h3>
                 <p className="mt-3 text-sm text-muted">{item.description}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -208,14 +208,16 @@ export default function TechnologyPage() {
             title="Safety is part of the pipeline, not an afterthought"
           />
           <ul className="hairline-t">
-            {responsibleUse.map((item) => (
-              <li
+            {responsibleUse.map((item, i) => (
+              <Reveal
                 key={item}
+                delay={i * 60}
+                as="li"
                 className="hairline-b flex items-start gap-3 py-5 text-sm text-muted"
               >
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
                 {item}
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>

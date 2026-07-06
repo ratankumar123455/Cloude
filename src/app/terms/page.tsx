@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -48,11 +49,11 @@ export default function TermsPage() {
       <section className="py-20">
         <div className="mx-auto max-w-3xl px-6">
           <div className="hairline-t">
-            {sections.map((section) => (
-              <div key={section.title} className="hairline-b py-8">
+            {sections.map((section, i) => (
+              <Reveal key={section.title} delay={Math.min(i * 30, 150)} className="hairline-b py-8">
                 <h2 className="font-display text-xl text-paper">{section.title}</h2>
                 <p className="mt-3 text-sm leading-relaxed text-muted">{section.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
           <p className="mt-8 text-sm text-muted">

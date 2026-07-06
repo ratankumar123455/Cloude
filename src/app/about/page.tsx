@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import CtaBanner from "@/components/CtaBanner";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -80,27 +81,32 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-x-12 sm:grid-cols-2">
             {missionVision.map((item, i) => (
-              <div
+              <Reveal
                 key={item.title}
+                delay={i * 80}
                 className={`hairline-t pt-8 pb-8 sm:pb-0 ${i === 0 ? "sm:pr-12" : "sm:border-l sm:border-[var(--line)] sm:pl-12"}`}
               >
                 <h3 className="font-display text-2xl text-paper">{item.title}</h3>
                 <p className="mt-4 text-muted">{item.description}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="hairline-t py-24">
+      <section className="hairline-t section-tint py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading eyebrow="What drives us" title="The principles behind what we build" />
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((item) => (
-              <div key={item.title} className="border-l-2 border-accent/60 pl-5">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {values.map((item, i) => (
+              <Reveal
+                key={item.title}
+                delay={i * 60}
+                className="card-lift rounded-xl border border-[var(--line)] p-6"
+              >
                 <h3 className="font-display text-lg text-paper">{item.title}</h3>
                 <p className="mt-3 text-sm text-muted">{item.description}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -110,9 +116,10 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading eyebrow="Where we're headed" title="Our roadmap" />
           <div className="hairline-t">
-            {roadmap.map((item) => (
-              <div
+            {roadmap.map((item, i) => (
+              <Reveal
                 key={item.label}
+                delay={i * 80}
                 className="hairline-b flex flex-col gap-4 py-8 sm:flex-row sm:items-start sm:gap-10"
               >
                 <span className="mono-label w-20 shrink-0 text-[11px] text-accent">
@@ -122,7 +129,7 @@ export default function AboutPage() {
                   <h3 className="font-display text-lg text-paper">{item.title}</h3>
                   <p className="mt-2 text-sm text-muted">{item.description}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -130,7 +137,7 @@ export default function AboutPage() {
 
       <section className="hairline-t py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="surface rounded-xl p-10 sm:p-14">
+          <Reveal className="surface rounded-2xl p-10 sm:p-14">
             <p className="mono-label text-[11px] text-accent">
               Registered and operated in India
             </p>
@@ -143,7 +150,7 @@ export default function AboutPage() {
               174 Kasturba Gandhi Marg, Kachehri, near Hawaijahaj, Prayagraj,
               Uttar Pradesh 211002, India
             </p>
-          </div>
+          </Reveal>
         </div>
       </section>
 

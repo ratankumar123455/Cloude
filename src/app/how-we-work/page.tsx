@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import CtaBanner from "@/components/CtaBanner";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
   title: "How We Work",
@@ -34,6 +35,12 @@ const detailedSteps = [
     description:
       "Not quite right? Adjust the prompt and regenerate, or request variations. Once you're happy with the result, export it in a format ready for your website, app, or campaign.",
   },
+  {
+    step: "05",
+    title: "Deploy or integrate",
+    description:
+      "Publish the finished asset directly, or wire generation into your own pipeline through the API — the same workflow, running unattended.",
+  },
 ];
 
 const imageWorkflow = [
@@ -65,26 +72,26 @@ export default function HowWeWorkPage() {
 
       <section className="hairline-b py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <SectionHeading eyebrow="The process" title="Four steps, start to finish" />
-          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-            {detailedSteps.map((item) => (
-              <div key={item.step} className="hairline-t pt-6">
-                <span className="font-display text-3xl text-accent">
+          <SectionHeading eyebrow="The process" title="Five steps, start to finish" />
+          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
+            {detailedSteps.map((item, i) => (
+              <Reveal key={item.step} delay={i * 60} className="hairline-t pt-6">
+                <span className="font-display text-3xl text-generated">
                   {item.step}
                 </span>
                 <h3 className="font-display mt-3 text-lg text-paper">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm text-muted">{item.description}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       <section className="hairline-b py-24">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 sm:grid-cols-2">
-          <div>
+        <div className="mx-auto grid max-w-6xl gap-6 px-6 sm:grid-cols-2">
+          <Reveal className="card-lift rounded-2xl border border-[var(--line)] p-8">
             <h3 className="font-display text-2xl text-paper">Image workflow</h3>
             <ol className="mt-6 space-y-4">
               {imageWorkflow.map((item, i) => (
@@ -94,8 +101,8 @@ export default function HowWeWorkPage() {
                 </li>
               ))}
             </ol>
-          </div>
-          <div>
+          </Reveal>
+          <Reveal delay={80} className="card-lift rounded-2xl border border-[var(--line)] p-8">
             <h3 className="font-display text-2xl text-paper">Video workflow</h3>
             <ol className="mt-6 space-y-4">
               {videoWorkflow.map((item, i) => (
@@ -105,7 +112,7 @@ export default function HowWeWorkPage() {
                 </li>
               ))}
             </ol>
-          </div>
+          </Reveal>
         </div>
       </section>
 
