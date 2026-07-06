@@ -1,18 +1,43 @@
+import Link from "next/link";
+
+const siteLinks = [
+  { href: "/how-we-work", label: "How We Work" },
+  { href: "/technology", label: "Technology" },
+  { href: "/about", label: "About Us" },
+  { href: "/team", label: "Team" },
+  { href: "/generate", label: "Try the Generator" },
+];
+
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-[#05050a]">
-      <div className="mx-auto flex max-w-6xl flex-col gap-6 px-6 py-10 text-sm text-zinc-400 sm:flex-row sm:items-start sm:justify-between">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-12 text-sm text-zinc-400 sm:grid-cols-3">
         <div>
           <p className="text-base font-semibold text-white">
             Suter<span className="gradient-text">tai</span> Private Limited
           </p>
-          <p className="mt-2 max-w-xs">
-            Generative AI for text-to-image and text-to-video creation.
+          <p className="mt-3 max-w-xs">
+            A generative AI company building text-to-image and text-to-video
+            products for creators and businesses.
           </p>
         </div>
+
+        <div>
+          <p className="font-medium text-zinc-200">Site</p>
+          <ul className="mt-3 space-y-2">
+            {siteLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="hover:text-white">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
         <div>
           <p className="font-medium text-zinc-200">Contact</p>
-          <p className="mt-2">Ramesh Sharma</p>
+          <p className="mt-3">Ramesh Sharma</p>
           <p>
             <a href="tel:+917459887412" className="hover:text-white">
               +91 74598 87412

@@ -1,46 +1,80 @@
-const products = [
+import Link from "next/link";
+import SectionHeading from "@/components/SectionHeading";
+import CtaBanner from "@/components/CtaBanner";
+import ImageGenerator from "@/components/ImageGenerator";
+
+const capabilities = [
   {
     title: "Text to Image",
     description:
-      "Describe a scene in plain language and get high-resolution, production-ready images in seconds. Fine-tune style, composition, and lighting with simple prompts.",
-    points: [
-      "Photorealistic and stylized rendering",
-      "Custom aspect ratios for social, print, and web",
-      "Batch generation for rapid iteration",
-    ],
+      "Describe a scene in plain language and get a high-resolution image back in seconds.",
   },
   {
     title: "Text to Video",
     description:
-      "Turn a script or a single sentence into short-form video clips. Sutertai handles scene continuity, motion, and pacing so you can focus on the story.",
-    points: [
-      "Multi-shot scene generation from a single prompt",
-      "Consistent characters and style across frames",
-      "Export-ready formats for reels, ads, and product demos",
-    ],
+      "Turn a script or a single sentence into a short-form video clip with consistent motion and style.",
+  },
+  {
+    title: "Style control",
+    description:
+      "Guide composition, lighting, and tone through prompts — no design software required.",
+  },
+  {
+    title: "Batch generation",
+    description:
+      "Generate multiple variations at once so you can pick the best result faster.",
+  },
+  {
+    title: "API access",
+    description:
+      "Plug Sutertai's generation engine directly into your own app or content pipeline.",
+  },
+  {
+    title: "Team workspaces",
+    description:
+      "Keep prompts, styles, and generated assets organized and shared across your team.",
   },
 ];
 
-const features = [
+const steps = [
   {
-    title: "Built for speed",
-    description:
-      "Generate images and video clips in seconds, not hours, so your team can iterate faster and ship more creative work.",
+    step: "01",
+    title: "Describe your idea",
+    description: "Write what you want to see, in plain language.",
   },
   {
-    title: "Fine-grained control",
-    description:
-      "Guide style, composition, and tone with prompts and reference inputs, without needing a design or animation background.",
+    step: "02",
+    title: "Generate with AI",
+    description: "Sutertai's models render your prompt into an image or video.",
   },
   {
-    title: "API-first",
-    description:
-      "Integrate Sutertai's generation engine directly into your product, app, or content pipeline with a simple API.",
+    step: "03",
+    title: "Refine the result",
+    description: "Adjust the prompt or regenerate until it matches your vision.",
   },
   {
-    title: "Made for teams",
-    description:
-      "Share projects, reuse styles, and keep every generated asset organized in one workspace.",
+    step: "04",
+    title: "Export and use",
+    description: "Download your asset in a format ready for your platform.",
+  },
+];
+
+const audiences = [
+  {
+    title: "Marketing teams",
+    description: "Produce campaign visuals and short video ads without a production crew.",
+  },
+  {
+    title: "Content creators",
+    description: "Generate thumbnails, illustrations, and clips for social and video platforms.",
+  },
+  {
+    title: "E-commerce brands",
+    description: "Create product imagery and promotional visuals at scale.",
+  },
+  {
+    title: "Startups and founders",
+    description: "Get professional-looking visuals for decks, landing pages, and launches fast.",
   },
 ];
 
@@ -64,164 +98,104 @@ export default function Home() {
             creators, marketers, and product teams.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a
-              href="#products"
+            <Link
+              href="/generate"
               className="rounded-full bg-gradient-to-r from-violet-500 to-sky-400 px-7 py-3 text-sm font-semibold text-black transition-opacity hover:opacity-90"
             >
-              Explore products
-            </a>
-            <a
-              href="#contact"
+              Try the generator
+            </Link>
+            <Link
+              href="/how-we-work"
               className="glow-border rounded-full px-7 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/5"
             >
-              Talk to us
-            </a>
+              See how it works
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Products */}
+      {/* Live demo */}
+      <section id="generate" className="border-t border-white/10 py-24">
+        <div className="mx-auto max-w-4xl px-6">
+          <SectionHeading
+            eyebrow="Try it live"
+            title="Generate an image right now"
+            description="Type a prompt below to see Sutertai's text-to-image engine in action — no sign-up required."
+            align="center"
+          />
+          <ImageGenerator />
+        </div>
+      </section>
+
+      {/* Capabilities */}
       <section id="products" className="border-t border-white/10 py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-14 max-w-2xl">
-            <h2 className="text-sm font-semibold uppercase tracking-widest text-violet-300">
-              Our products
-            </h2>
-            <p className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
-              Two engines, one goal: turn your words into visuals.
-            </p>
-          </div>
-          <div className="grid gap-8 sm:grid-cols-2">
-            {products.map((product) => (
-              <div
-                key={product.title}
-                className="glow-border rounded-2xl bg-white/[0.03] p-8"
-              >
-                <h3 className="text-2xl font-semibold text-white">
-                  {product.title}
-                </h3>
-                <p className="mt-4 text-zinc-400">{product.description}</p>
-                <ul className="mt-6 space-y-2">
-                  {product.points.map((point) => (
-                    <li
-                      key={point}
-                      className="flex items-start gap-2 text-sm text-zinc-300"
-                    >
-                      <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-gradient-to-r from-violet-400 to-sky-400" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
+          <SectionHeading
+            eyebrow="One platform"
+            title="Every way to create a visual"
+            description="Sutertai combines image and video generation with the controls creative teams actually need."
+          />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {capabilities.map((item) => (
+              <div key={item.title} className="rounded-2xl bg-white/[0.03] p-6">
+                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                <p className="mt-3 text-sm text-zinc-400">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section id="features" className="border-t border-white/10 py-24">
+      {/* How it works preview */}
+      <section className="border-t border-white/10 py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="mb-14 max-w-2xl">
-            <h2 className="text-sm font-semibold uppercase tracking-widest text-violet-300">
-              Why Sutertai
-            </h2>
-            <p className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
-              Generative AI that fits into how you already work.
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="Process"
+            title="From idea to finished asset in four steps"
+          />
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {features.map((feature) => (
-              <div key={feature.title} className="rounded-2xl bg-white/[0.03] p-6">
-                <h3 className="text-lg font-semibold text-white">
-                  {feature.title}
+            {steps.map((item) => (
+              <div key={item.step} className="glow-border rounded-2xl bg-white/[0.03] p-6">
+                <span className="text-sm font-semibold text-violet-300">
+                  {item.step}
+                </span>
+                <h3 className="mt-3 text-lg font-semibold text-white">
+                  {item.title}
                 </h3>
-                <p className="mt-3 text-sm text-zinc-400">
-                  {feature.description}
-                </p>
+                <p className="mt-2 text-sm text-zinc-400">{item.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 text-center">
+            <Link
+              href="/how-we-work"
+              className="text-sm font-medium text-violet-300 hover:underline"
+            >
+              See the full process →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Audiences */}
+      <section className="border-t border-white/10 py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <SectionHeading
+            eyebrow="Who it's for"
+            title="Built for anyone who needs visuals, fast"
+          />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {audiences.map((item) => (
+              <div key={item.title} className="rounded-2xl bg-white/[0.03] p-6">
+                <h3 className="text-lg font-semibold text-white">{item.title}</h3>
+                <p className="mt-3 text-sm text-zinc-400">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About */}
-      <section id="about" className="border-t border-white/10 py-24">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 sm:grid-cols-2 sm:items-center">
-          <div>
-            <h2 className="text-sm font-semibold uppercase tracking-widest text-violet-300">
-              About us
-            </h2>
-            <p className="mt-3 text-3xl font-semibold text-white sm:text-4xl">
-              Sutertai Private Limited
-            </p>
-          </div>
-          <div className="text-zinc-400">
-            <p>
-              Sutertai is a generative AI company focused on making visual
-              creation effortless. Our text-to-image and text-to-video
-              models help creators, marketers, and businesses generate
-              high-quality visuals directly from written descriptions —
-              cutting down the time and cost of traditional content
-              production.
-            </p>
-            <p className="mt-4">
-              We are based in Prayagraj, Uttar Pradesh, India, and are
-              building for creators and teams everywhere.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="border-t border-white/10 py-24">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="glow-border rounded-2xl bg-white/[0.03] p-10 sm:p-14">
-            <div className="grid gap-10 sm:grid-cols-2">
-              <div>
-                <h2 className="text-sm font-semibold uppercase tracking-widest text-violet-300">
-                  Get in touch
-                </h2>
-                <p className="mt-3 text-3xl font-semibold text-white">
-                  Let&apos;s build something visual.
-                </p>
-                <p className="mt-4 text-zinc-400">
-                  Have a project in mind, or want to try Sutertai for your
-                  team? Reach out and we&apos;ll get back to you.
-                </p>
-              </div>
-              <div className="space-y-4 text-zinc-300">
-                <div>
-                  <p className="text-sm uppercase tracking-wide text-zinc-500">
-                    Contact person
-                  </p>
-                  <p className="mt-1 text-lg text-white">Ramesh Sharma</p>
-                </div>
-                <div>
-                  <p className="text-sm uppercase tracking-wide text-zinc-500">
-                    Phone
-                  </p>
-                  <a
-                    href="tel:+917459887412"
-                    className="mt-1 block text-lg text-white hover:text-violet-300"
-                  >
-                    +91 74598 87412
-                  </a>
-                </div>
-                <div>
-                  <p className="text-sm uppercase tracking-wide text-zinc-500">
-                    Address
-                  </p>
-                  <p className="mt-1 text-lg text-white">
-                    174 Kasturba Gandhi Marg, Kachehri, near Hawaijahaj,
-                    <br />
-                    Prayagraj, Uttar Pradesh 211002, India
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <CtaBanner />
     </div>
   );
 }
