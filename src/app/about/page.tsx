@@ -4,7 +4,7 @@ import CtaBanner from "@/components/CtaBanner";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "About Us | Sutertai",
+  title: "About Us",
   description:
     "Sutertai Private Limited is a generative AI company building text-to-image and text-to-video products, based in Prayagraj, India.",
 };
@@ -130,7 +130,7 @@ export default function AboutPage() {
 
       <section className="hairline-t py-24">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="surface rounded-sm p-10 sm:p-14">
+          <div className="surface rounded-xl p-10 sm:p-14">
             <p className="mono-label text-[11px] text-accent">
               Registered and operated in India
             </p>

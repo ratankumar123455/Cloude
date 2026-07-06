@@ -4,7 +4,7 @@ import CtaBanner from "@/components/CtaBanner";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "Team | Sutertai",
+  title: "Team",
   description: "Meet the team behind Sutertai Private Limited.",
 };
 

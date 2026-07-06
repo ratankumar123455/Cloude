@@ -2,123 +2,104 @@ import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import CtaBanner from "@/components/CtaBanner";
 import ImageGenerator from "@/components/ImageGenerator";
+import MagneticLink from "@/components/MagneticLink";
+import Reveal from "@/components/Reveal";
+import LogoMarquee from "@/components/LogoMarquee";
+import WhySutertai from "@/components/WhySutertai";
+import Industries from "@/components/Industries";
+import CaseStudies from "@/components/CaseStudies";
+import Testimonials from "@/components/Testimonials";
+import Pricing from "@/components/Pricing";
+import Faq from "@/components/Faq";
+
+const products = [
+  {
+    id: "text-to-image",
+    tag: "Image",
+    title: "Text to Image AI",
+    description:
+      "Ultra-realistic images, illustrations, product photography, and concept art from a single prompt — with commercial license, upscaling, and full brand consistency.",
+    href: "/technology#text-to-image",
+  },
+  {
+    id: "text-to-video",
+    tag: "Video",
+    title: "Text to Video AI",
+    description:
+      "Cinematic video generated directly from text, with consistent motion, camera movement, and voice synchronization from first frame to last.",
+    href: "/technology#text-to-video",
+  },
+  {
+    id: "ai-studio",
+    tag: "Workspace",
+    title: "AI Studio",
+    description:
+      "One workspace for image, video, editing, prompts, and assets — with an enterprise dashboard and API access when your team is ready to scale.",
+    href: "/technology#ai-studio",
+  },
+];
 
 const capabilities = [
-  {
-    tag: "Image",
-    title: "Text to Image",
-    description:
-      "Describe a scene in plain language and get a high-resolution image back in seconds.",
-  },
-  {
-    tag: "Video",
-    title: "Text to Video",
-    description:
-      "Turn a script or a single sentence into a short-form video clip with consistent motion and style.",
-  },
-  {
-    tag: "Direction",
-    title: "Style control",
-    description:
-      "Guide composition, lighting, and tone through prompts — no design software required.",
-  },
-  {
-    tag: "Output",
-    title: "Batch generation",
-    description:
-      "Generate multiple variations at once so you can pick the best result faster.",
-  },
-  {
-    tag: "Build",
-    title: "API access",
-    description:
-      "Plug Sutertai's generation engine directly into your own app or content pipeline.",
-  },
-  {
-    tag: "Teams",
-    title: "Team workspaces",
-    description:
-      "Keep prompts, styles, and generated assets organized and shared across your team.",
-  },
+  { tag: "Image", title: "Text to Image", description: "Photorealistic images, illustration, and product visuals." },
+  { tag: "Video", title: "Text to Video", description: "Short-form and cinematic video from a written script." },
+  { tag: "Edit", title: "AI Editing", description: "Inpainting, outpainting, and background removal, built in." },
+  { tag: "Resolution", title: "Upscaling", description: "Clean 4K output ready for print and broadcast." },
+  { tag: "Build", title: "API", description: "Every capability available through a documented REST API." },
+  { tag: "Compute", title: "Cloud Rendering", description: "Auto-scaling render capacity with no local GPU required." },
 ];
 
 const steps = [
-  {
-    step: "01",
-    title: "Describe your idea",
-    description: "Write what you want to see, in plain language.",
-  },
-  {
-    step: "02",
-    title: "Generate with AI",
-    description: "Sutertai's models render your prompt into an image or video.",
-  },
-  {
-    step: "03",
-    title: "Refine the result",
-    description: "Adjust the prompt or regenerate until it matches your vision.",
-  },
-  {
-    step: "04",
-    title: "Export and use",
-    description: "Download your asset in a format ready for your platform.",
-  },
-];
-
-const audiences = [
-  {
-    title: "Marketing teams",
-    description: "Produce campaign visuals and short video ads without a production crew.",
-  },
-  {
-    title: "Content creators",
-    description: "Generate thumbnails, illustrations, and clips for social and video platforms.",
-  },
-  {
-    title: "E-commerce brands",
-    description: "Create product imagery and promotional visuals at scale.",
-  },
-  {
-    title: "Startups and founders",
-    description: "Get professional-looking visuals for decks, landing pages, and launches fast.",
-  },
+  { step: "01", title: "Prompt", description: "Describe what you want to see, in plain language." },
+  { step: "02", title: "Generate", description: "Sutertai's models render your prompt into an image or video." },
+  { step: "03", title: "Edit", description: "Adjust composition, style, or motion until it matches your intent." },
+  { step: "04", title: "Export", description: "Download in a format ready for your platform, at production resolution." },
 ];
 
 export default function Home() {
   return (
     <div>
       {/* Hero */}
-      <section className="hairline-b">
+      <section className="hairline-b relative overflow-hidden">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[640px]"
+          style={{
+            background:
+              "radial-gradient(700px circle at 20% -10%, rgba(79,70,229,0.28), transparent 60%), radial-gradient(700px circle at 85% 10%, rgba(124,58,237,0.22), transparent 55%)",
+          }}
+          aria-hidden="true"
+        />
         <div className="mx-auto flex max-w-6xl flex-col items-start px-6 pt-24 pb-20">
-          <p className="mono-label text-[11px] text-accent">
-            Generative AI, from words to visuals
-          </p>
-          <h1 className="font-display mt-6 max-w-3xl text-5xl leading-[1.05] text-paper sm:text-7xl">
-            Turn text into
-            <br />
-            <span className="text-generated">images and video</span>
-          </h1>
-          <p className="mt-8 max-w-xl text-lg text-muted">
-            Sutertai Private Limited builds generative AI products that turn
-            a simple prompt into ready-to-use images and videos — for
-            creators, marketers, and product teams.
-          </p>
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <Link
-              href="/generate"
-              className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-90"
-            >
-              Try the generator
-            </Link>
-            <Link
-              href="/how-we-work"
-              className="rounded-full border border-[var(--line)] px-7 py-3 text-sm font-semibold text-paper transition-colors hover:bg-white/5"
-            >
+          <Reveal>
+            <p className="mono-label text-[11px] text-accent">
+              Sutertai Private Limited · Generative AI
+            </p>
+          </Reveal>
+          <Reveal delay={80}>
+            <h1 className="font-display mt-6 max-w-3xl text-5xl leading-[1.05] text-paper sm:text-7xl">
+              Build intelligence.
+              <br />
+              <span className="text-generated">Create anything.</span>
+            </h1>
+          </Reveal>
+          <Reveal delay={160}>
+            <p className="mt-8 max-w-xl text-lg text-muted">
+              Sutertai turns a written prompt into a finished image or video —
+              production-grade output, built for teams that ship creative
+              work every day.
+            </p>
+          </Reveal>
+          <Reveal delay={240} className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <MagneticLink href="/generate" variant="primary">
+              Start creating
+            </MagneticLink>
+            <MagneticLink href="/how-we-work" variant="secondary">
               See how it works
-            </Link>
-          </div>
+            </MagneticLink>
+          </Reveal>
         </div>
       </section>
+
+      <LogoMarquee />
 
       {/* Live demo */}
       <section id="generate" className="hairline-b py-24">
@@ -133,48 +114,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Capabilities */}
+      {/* Products */}
       <section id="products" className="hairline-b py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
-            eyebrow="One platform"
-            title="Every way to create a visual"
-            description="Sutertai combines image and video generation with the controls creative teams actually need."
+            eyebrow="Products"
+            title="Three products. One generation engine."
+            description="Everything Sutertai builds runs on the same core model — tuned for image, for video, and for teams running both at scale."
           />
-          <div className="hairline-t grid sm:grid-cols-2 [&>div]:border-b [&>div]:border-[var(--line)] [&>div]:py-7 sm:[&>div:nth-child(2n)]:border-l sm:[&>div:nth-child(2n)]:border-[var(--line)] sm:[&>div:nth-child(2n)]:pl-8 sm:[&>div:nth-child(odd)]:pr-8">
-            {capabilities.map((item) => (
-              <div key={item.title} className="flex flex-col gap-2">
-                <span className="mono-label text-[10px] text-accent">
-                  {item.tag}
-                </span>
-                <h3 className="font-display text-xl text-paper">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-muted">{item.description}</p>
-              </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {products.map((product, i) => (
+              <Reveal
+                key={product.id}
+                delay={i * 80}
+                className="card-lift flex flex-col justify-between rounded-2xl border border-[var(--line)] p-8"
+              >
+                <div>
+                  <span className="mono-label text-[10px] text-accent">
+                    {product.tag}
+                  </span>
+                  <h3 className="font-display mt-4 text-2xl text-paper">
+                    {product.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-muted">{product.description}</p>
+                </div>
+                <Link
+                  href={product.href}
+                  className="mt-8 text-sm font-medium text-accent hover:underline"
+                >
+                  Explore {product.title.split(" ")[0]} →
+                </Link>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How it works preview */}
+      {/* How it works */}
       <section className="hairline-b py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="Process"
             title="From idea to finished asset in four steps"
           />
-          <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-            {steps.map((item) => (
-              <div key={item.step} className="hairline-t pt-6">
-                <span className="font-display text-3xl text-accent">
+          <div className="hairline-t grid gap-x-8 gap-y-10 pt-10 sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map((item, i) => (
+              <Reveal key={item.step} delay={i * 80}>
+                <span className="font-display text-3xl text-generated">
                   {item.step}
                 </span>
                 <h3 className="font-display mt-3 text-lg text-paper">
                   {item.title}
                 </h3>
                 <p className="mt-2 text-sm text-muted">{item.description}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
           <div className="mt-10">
@@ -188,29 +181,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Audiences */}
+      <WhySutertai />
+
+      {/* AI Capabilities */}
       <section className="hairline-b py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
-            eyebrow="Who it's for"
-            title="Built for anyone who needs visuals, fast"
+            eyebrow="Capabilities"
+            title="Every way to create a visual, in one platform"
           />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {audiences.map((item) => (
-              <div
-                key={item.title}
-                className="border-l-2 border-accent/60 pl-5"
-              >
-                <h3 className="font-display text-lg text-paper">
+          <div className="hairline-t grid sm:grid-cols-2 lg:grid-cols-3 [&>div]:border-b [&>div]:border-[var(--line)] [&>div]:py-7 lg:[&>div:not(:nth-child(3n))]:border-r lg:[&>div:not(:nth-child(3n))]:pr-8 lg:[&>div:not(:nth-child(3n))]:border-[var(--line)]">
+            {capabilities.map((item, i) => (
+              <Reveal key={item.title} delay={i * 40} className="flex flex-col gap-2 lg:pl-8">
+                <span className="mono-label text-[10px] text-accent">
+                  {item.tag}
+                </span>
+                <h3 className="font-display text-xl text-paper">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-muted">{item.description}</p>
-              </div>
+                <p className="text-sm text-muted">{item.description}</p>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
+      <Industries />
+      <CaseStudies />
+      <Testimonials />
+      <Pricing />
+      <Faq />
       <CtaBanner />
     </div>
   );

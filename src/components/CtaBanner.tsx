@@ -1,12 +1,13 @@
-import Link from "next/link";
+import MagneticLink from "./MagneticLink";
+import Reveal from "./Reveal";
 
 export default function CtaBanner({
-  title = "Ready to turn your words into visuals?",
-  description = "Try the live generator or talk to our team about integrating Sutertai into your workflow.",
+  title = "Start creating with AI.",
+  description = "Try the studio free, or talk to our team about running Sutertai at production scale.",
   primaryHref = "/generate",
-  primaryLabel = "Try the generator",
+  primaryLabel = "Get started",
   secondaryHref = "/contact",
-  secondaryLabel = "Talk to us",
+  secondaryLabel = "Book a demo",
 }: {
   title?: string;
   description?: string;
@@ -18,26 +19,30 @@ export default function CtaBanner({
   return (
     <section className="hairline-t py-24">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="surface flex flex-col items-center gap-6 rounded-sm p-10 text-center sm:p-14">
-          <p className="font-display text-3xl text-paper sm:text-4xl">
-            {title}
-          </p>
-          <p className="max-w-xl text-muted">{description}</p>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <Link
-              href={primaryHref}
-              className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-90"
-            >
-              {primaryLabel}
-            </Link>
-            <Link
-              href={secondaryHref}
-              className="rounded-full border border-[var(--line)] px-7 py-3 text-sm font-semibold text-paper transition-colors hover:bg-white/5"
-            >
-              {secondaryLabel}
-            </Link>
+        <Reveal className="surface relative overflow-hidden rounded-2xl p-10 text-center sm:p-16">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-40"
+            style={{
+              background:
+                "radial-gradient(600px circle at 50% 0%, rgba(79,70,229,0.25), transparent 60%)",
+            }}
+            aria-hidden="true"
+          />
+          <div className="relative flex flex-col items-center gap-6">
+            <p className="font-display text-3xl text-paper sm:text-5xl">
+              {title}
+            </p>
+            <p className="max-w-xl text-muted">{description}</p>
+            <div className="mt-2 flex flex-col gap-4 sm:flex-row">
+              <MagneticLink href={primaryHref} variant="primary">
+                {primaryLabel}
+              </MagneticLink>
+              <MagneticLink href={secondaryHref} variant="secondary">
+                {secondaryLabel}
+              </MagneticLink>
+            </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

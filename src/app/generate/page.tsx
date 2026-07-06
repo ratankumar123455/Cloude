@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ImageGenerator from "@/components/ImageGenerator";
 
 export const metadata: Metadata = {
-  title: "Try the Generator | Sutertai",
+  title: "Try the Generator",
   description:
     "Generate an image from a text prompt using Sutertai's generative AI engine.",
 };

@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 export default function SectionHeading({
   eyebrow,
   title,
@@ -10,7 +12,7 @@ export default function SectionHeading({
   align?: "left" | "center";
 }) {
   return (
-    <div
+    <Reveal
       className={`mb-14 max-w-2xl ${
         align === "center" ? "mx-auto text-center" : ""
       }`}
@@ -20,6 +22,6 @@ export default function SectionHeading({
         {title}
       </p>
       {description && <p className="mt-4 text-muted">{description}</p>}
-    </div>
+    </Reveal>
   );
 }

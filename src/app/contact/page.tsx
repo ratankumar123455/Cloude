@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact | Sutertai",
+  title: "Contact",
   description: "Get in touch with Sutertai Private Limited.",
 };
 
@@ -27,7 +27,7 @@ export default function ContactPage() {
       </div>
 
       <div className="grid gap-10 lg:grid-cols-2">
-        <div className="surface rounded-sm p-8 sm:p-10">
+        <div className="surface rounded-xl p-8 sm:p-10">
           <h2 className="font-display text-xl text-paper">Send a message</h2>
           <div className="mt-6">
             <ContactForm />

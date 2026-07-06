@@ -43,7 +43,7 @@ export default function ImageGenerator() {
   }
 
   return (
-    <div className="surface rounded-sm p-6 sm:p-10">
+    <div className="surface rounded-xl p-6 sm:p-10">
       <form onSubmit={handleGenerate} className="flex flex-col gap-4">
         <label htmlFor="prompt" className="mono-label text-[11px] text-muted">
           Describe the image you want
@@ -55,7 +55,7 @@ export default function ImageGenerator() {
           rows={3}
           maxLength={500}
           placeholder="e.g. A cozy reading nook by a rainy window, warm light, illustration style"
-          className="w-full resize-none rounded-sm border border-[var(--line)] bg-black/30 p-4 text-sm text-paper placeholder:text-muted/70 focus:border-accent focus:outline-none"
+          className="w-full resize-none rounded-xl border border-[var(--line)] bg-black/30 p-4 text-sm text-paper placeholder:text-muted/70 focus:border-accent focus:outline-none"
         />
 
         <div className="flex flex-wrap gap-2">
@@ -74,13 +74,13 @@ export default function ImageGenerator() {
         <button
           type="submit"
           disabled={loading || !prompt.trim()}
-          className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-40 sm:self-start"
+          className="btn-primary rounded-full px-7 py-3 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-40 sm:self-start"
         >
           {loading ? "Generating…" : "Generate image"}
         </button>
       </form>
 
-      <div className="mt-8 flex min-h-[280px] items-center justify-center rounded-sm border border-dashed border-[var(--line)] bg-black/20 p-4">
+      <div className="mt-8 flex min-h-[280px] items-center justify-center rounded-xl border border-dashed border-[var(--line)] bg-black/20 p-4">
         {loading && (
           <p className="text-sm text-muted">
             Rendering your image, this usually takes a few seconds…
@@ -94,7 +94,7 @@ export default function ImageGenerator() {
           <img
             src={imageUrl}
             alt={prompt}
-            className="max-h-[420px] w-auto rounded-sm"
+            className="max-h-[420px] w-auto rounded-xl"
           />
         )}
         {!loading && !error && !imageUrl && (

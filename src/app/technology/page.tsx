@@ -2,12 +2,70 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import CtaBanner from "@/components/CtaBanner";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
+import MagneticLink from "@/components/MagneticLink";
 
 export const metadata: Metadata = {
-  title: "Technology | Sutertai",
+  title: "Products & Technology",
   description:
-    "How Sutertai's generative AI technology turns text prompts into images and video.",
+    "Text to Image, Text to Video, and AI Studio — the generative AI products behind Sutertai, and the pipeline that powers them.",
 };
+
+const products = [
+  {
+    id: "text-to-image",
+    tag: "Image",
+    title: "Text to Image AI",
+    description:
+      "Ultra-realistic images, illustrations, product photography, concept art, marketing assets, fashion visuals, architecture renders, anime, logos, advertisements, and digital artwork — from a single prompt.",
+    features: [
+      "Photorealistic outputs",
+      "Multiple art styles",
+      "High-resolution generation",
+      "Commercial license",
+      "Background removal",
+      "Upscaling",
+      "Inpainting & outpainting",
+      "AI editing",
+      "Brand style consistency",
+      "Batch generation",
+    ],
+  },
+  {
+    id: "text-to-video",
+    tag: "Video",
+    title: "Text to Video AI",
+    description:
+      "Cinematic video generated directly from text — for product commercials, marketing, storytelling, and social content, with consistent motion and style from the first frame to the last.",
+    features: [
+      "AI video generation",
+      "Motion synthesis",
+      "Camera movement",
+      "Character animation",
+      "Multi-scene generation",
+      "Voice synchronization & lip sync",
+      "4K export",
+      "Video editing",
+    ],
+  },
+  {
+    id: "ai-studio",
+    tag: "Workspace",
+    title: "AI Studio",
+    description:
+      "One workspace for every AI creation — where individual generations become a repeatable production pipeline for a team.",
+    features: [
+      "Image & video generator",
+      "AI editing",
+      "Prompt library",
+      "Asset management",
+      "Brand templates",
+      "Cloud rendering",
+      "API access",
+      "Enterprise dashboard",
+    ],
+  },
+];
 
 const pipeline = [
   {
@@ -57,16 +115,58 @@ export default function TechnologyPage() {
   return (
     <div>
       <PageHero
-        eyebrow="Technology"
+        eyebrow="Products & Technology"
         title={
           <>
-            The engine behind <span className="text-generated">Sutertai</span>
+            Every way to create with <span className="text-generated">Sutertai</span>
           </>
         }
-        description="Sutertai is built on generative AI models designed specifically for turning text into images and video — here's how the pipeline works, in plain language."
+        description="Three products, one generation engine — built specifically for turning language into finished visual and video assets."
       />
 
       <section className="py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="flex flex-col gap-8">
+            {products.map((product, i) => (
+              <Reveal
+                key={product.id}
+                id={product.id}
+                delay={i * 60}
+                className="card-lift scroll-mt-24 rounded-2xl border border-[var(--line)] p-8 sm:p-10"
+              >
+                <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
+                  <div>
+                    <span className="mono-label text-[11px] text-accent">
+                      {product.tag}
+                    </span>
+                    <h2 className="font-display mt-3 text-2xl text-paper sm:text-3xl">
+                      {product.title}
+                    </h2>
+                    <p className="mt-4 max-w-lg text-muted">
+                      {product.description}
+                    </p>
+                    <div className="mt-8">
+                      <MagneticLink href="/generate" variant="secondary">
+                        Try it
+                      </MagneticLink>
+                    </div>
+                  </div>
+                  <ul className="grid grid-cols-2 gap-x-4 gap-y-3 self-start text-sm text-muted">
+                    {product.features.map((feature) => (
+                      <li key={feature} className="flex items-start gap-2">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-accent" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="hairline-t py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading eyebrow="How it works" title="From prompt to pixel" />
           <div className="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">

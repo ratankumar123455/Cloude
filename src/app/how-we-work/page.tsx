@@ -4,7 +4,7 @@ import CtaBanner from "@/components/CtaBanner";
 import PageHero from "@/components/PageHero";
 
 export const metadata: Metadata = {
-  title: "How We Work | Sutertai",
+  title: "How We Work",
   description:
     "How Sutertai turns a text prompt into a finished image or video, step by step.",
 };

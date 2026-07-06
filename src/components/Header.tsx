@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import MagneticLink from "./MagneticLink";
 
 const navItems = [
   { href: "/", label: "Home" },
+  { href: "/technology", label: "Products" },
   { href: "/how-we-work", label: "How We Work" },
-  { href: "/technology", label: "Technology" },
-  { href: "/about", label: "About Us" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/about", label: "About" },
   { href: "/team", label: "Team" },
   { href: "/contact", label: "Contact" },
 ];
@@ -18,7 +20,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="hairline-b sticky top-0 z-50 bg-ink/90 backdrop-blur">
+    <header className="hairline-b sticky top-0 z-50 bg-ink/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <Link
           href="/"
@@ -28,7 +30,7 @@ export default function Header() {
           Suter<span className="text-generated font-semibold">tai</span>
         </Link>
 
-        <nav className="mono-label hidden gap-7 text-[11px] text-muted lg:flex">
+        <nav className="mono-label hidden gap-6 text-[11px] text-muted xl:flex">
           {navItems.map((item) => {
             const active = pathname === item.href;
             return (
@@ -36,7 +38,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 className={`border-b pb-1 transition-colors hover:text-paper ${
-                  active ? "border-accent text-paper" : "border-transparent"
+                  active ? "border-indigo text-paper" : "border-transparent"
                 }`}
               >
                 {item.label}
@@ -45,27 +47,24 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
-          <Link
-            href="/generate"
-            className="rounded-full bg-accent px-5 py-2 text-sm font-medium text-ink transition-opacity hover:opacity-90"
-          >
-            Try the generator
-          </Link>
+        <div className="hidden xl:block">
+          <MagneticLink href="/generate" variant="primary" className="!px-5 !py-2 !text-xs">
+            Start creating
+          </MagneticLink>
         </div>
 
         <button
           type="button"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
-          className="mono-label flex h-10 w-10 items-center justify-center rounded-full border border-[var(--line)] text-paper lg:hidden"
+          className="mono-label flex h-10 w-10 items-center justify-center rounded-full border border-[var(--line)] text-paper xl:hidden"
         >
           {open ? "×" : "≡"}
         </button>
       </div>
 
       {open && (
-        <nav className="hairline-t flex flex-col gap-1 bg-ink px-6 py-4 lg:hidden">
+        <nav className="hairline-t flex flex-col gap-1 bg-ink px-6 py-4 xl:hidden">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -81,9 +80,9 @@ export default function Header() {
           <Link
             href="/generate"
             onClick={() => setOpen(false)}
-            className="mt-2 rounded-full bg-accent px-5 py-2 text-center text-sm font-medium text-ink"
+            className="btn-primary mt-2 rounded-full px-5 py-2.5 text-center text-sm font-semibold"
           >
-            Try the generator
+            Start creating
           </Link>
         </nav>
       )}

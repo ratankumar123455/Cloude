@@ -26,7 +26,7 @@ export default function ContactForm() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Jane Doe"
-          className="mt-2 w-full rounded-sm border border-[var(--line)] bg-black/30 p-3 text-sm text-paper placeholder:text-muted/70 focus:border-accent focus:outline-none"
+          className="mt-2 w-full rounded-xl border border-[var(--line)] bg-black/30 p-3 text-sm text-paper placeholder:text-muted/70 focus:border-accent focus:outline-none"
         />
       </div>
       <div>
@@ -40,12 +40,12 @@ export default function ContactForm() {
           rows={4}
           required
           placeholder="Tell us about your project or question"
-          className="mt-2 w-full resize-none rounded-sm border border-[var(--line)] bg-black/30 p-3 text-sm text-paper placeholder:text-muted/70 focus:border-accent focus:outline-none"
+          className="mt-2 w-full resize-none rounded-xl border border-[var(--line)] bg-black/30 p-3 text-sm text-paper placeholder:text-muted/70 focus:border-accent focus:outline-none"
         />
       </div>
       <button
         type="submit"
-        className="rounded-full bg-accent px-7 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-90 sm:self-start"
+        className="btn-primary rounded-full px-7 py-3 text-sm font-semibold sm:self-start"
       >
         Send via WhatsApp
       </button>
