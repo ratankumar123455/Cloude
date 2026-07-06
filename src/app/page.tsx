@@ -5,6 +5,7 @@ import ImageGenerator from "@/components/ImageGenerator";
 import MagneticLink from "@/components/MagneticLink";
 import Reveal from "@/components/Reveal";
 import LogoMarquee from "@/components/LogoMarquee";
+import HeroVisual from "@/components/HeroVisual";
 import WhySutertai from "@/components/WhySutertai";
 import Industries from "@/components/Industries";
 import CaseStudies from "@/components/CaseStudies";
@@ -61,40 +62,48 @@ export default function Home() {
       {/* Hero */}
       <section className="hairline-b relative overflow-hidden">
         <div
-          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[640px]"
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[720px]"
           style={{
             background:
-              "radial-gradient(700px circle at 20% -10%, rgba(79,70,229,0.28), transparent 60%), radial-gradient(700px circle at 85% 10%, rgba(124,58,237,0.22), transparent 55%)",
+              "radial-gradient(800px circle at 15% -10%, rgba(79,70,229,0.32), transparent 60%), radial-gradient(800px circle at 90% 15%, rgba(124,58,237,0.26), transparent 55%)",
           }}
           aria-hidden="true"
         />
-        <div className="mx-auto flex max-w-6xl flex-col items-start px-6 pt-24 pb-20">
-          <Reveal>
-            <p className="mono-label text-[11px] text-accent">
-              Sutertai Private Limited · Generative AI
-            </p>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1 className="font-display mt-6 max-w-3xl text-5xl leading-[1.05] text-paper sm:text-7xl">
-              Build intelligence.
-              <br />
-              <span className="text-generated">Create anything.</span>
-            </h1>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="mt-8 max-w-xl text-lg text-muted">
-              Sutertai turns a written prompt into a finished image or video —
-              production-grade output, built for teams that ship creative
-              work every day.
-            </p>
-          </Reveal>
-          <Reveal delay={240} className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <MagneticLink href="/generate" variant="primary">
-              Start creating
-            </MagneticLink>
-            <MagneticLink href="/how-we-work" variant="secondary">
-              See how it works
-            </MagneticLink>
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 pt-24 pb-20 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+          <div className="flex flex-col items-start">
+            <Reveal>
+              <span className="eyebrow-chip">
+                <span className="dot" aria-hidden="true" />
+                <span className="mono-label text-[10px] text-paper">
+                  Sutertai Private Limited · Generative AI
+                </span>
+              </span>
+            </Reveal>
+            <Reveal delay={80}>
+              <h1 className="font-display mt-6 max-w-xl text-5xl leading-[1.05] font-medium text-paper sm:text-7xl">
+                Build <span className="font-light text-muted">intelligence.</span>
+                <br />
+                <span className="text-generated">Create anything.</span>
+              </h1>
+            </Reveal>
+            <Reveal delay={160}>
+              <p className="mt-8 max-w-xl text-lg text-muted">
+                Sutertai turns a written prompt into a finished image or video —
+                production-grade output, built for teams that ship creative
+                work every day.
+              </p>
+            </Reveal>
+            <Reveal delay={240} className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <MagneticLink href="/generate" variant="primary">
+                Start creating
+              </MagneticLink>
+              <MagneticLink href="/how-we-work" variant="secondary">
+                See how it works
+              </MagneticLink>
+            </Reveal>
+          </div>
+          <Reveal delay={200} className="hidden lg:block">
+            <HeroVisual />
           </Reveal>
         </div>
       </section>
@@ -184,7 +193,7 @@ export default function Home() {
       <WhySutertai />
 
       {/* AI Capabilities */}
-      <section className="hairline-b py-24">
+      <section className="hairline-b section-tint py-24">
         <div className="mx-auto max-w-6xl px-6">
           <SectionHeading
             eyebrow="Capabilities"

@@ -54,7 +54,7 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="hairline-b py-24">
+    <section id="pricing" className="hairline-b section-tint py-24">
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="Pricing"
@@ -67,10 +67,8 @@ export default function Pricing() {
             <Reveal
               key={tier.name}
               delay={i * 80}
-              className={`flex flex-col rounded-2xl p-8 ${
-                tier.featured
-                  ? "border border-[var(--violet)] bg-[var(--surface)]"
-                  : "card-lift border border-[var(--line)]"
+              className={`surface flex flex-col rounded-2xl p-8 ${
+                tier.featured ? "surface-featured" : "card-lift"
               }`}
             >
               {tier.featured && (

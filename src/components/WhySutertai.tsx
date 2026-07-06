@@ -42,7 +42,7 @@ const reasons = [
 
 export default function WhySutertai() {
   return (
-    <section className="hairline-b py-24">
+    <section className="hairline-b section-tint py-24">
       <div className="mx-auto max-w-6xl px-6">
         <SectionHeading
           eyebrow="Why Sutertai"

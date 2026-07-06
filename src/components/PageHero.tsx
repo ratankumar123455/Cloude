@@ -8,10 +8,13 @@ export default function PageHero({
   description: string;
 }) {
   return (
-    <section className="hairline-b py-20">
+    <section className="hairline-b section-tint relative py-24">
       <div className="mx-auto max-w-4xl px-6 text-center">
-        <p className="mono-label text-[11px] text-accent">{eyebrow}</p>
-        <h1 className="font-display mt-6 text-4xl text-paper sm:text-5xl">
+        <span className="eyebrow-chip">
+          <span className="dot" aria-hidden="true" />
+          <span className="mono-label text-[10px] text-paper">{eyebrow}</span>
+        </span>
+        <h1 className="font-display mt-6 text-5xl font-medium text-paper sm:text-6xl">
           {title}
         </h1>
         <p className="mt-6 text-lg text-muted">{description}</p>

@@ -8,12 +8,15 @@
   --muted: rgba(248, 250, 252, 0.62);
   --muted-2: rgba(248, 250, 252, 0.4);
   --indigo: #4f46e5;
+  --indigo-bright: #6366f1;
   --violet: #7c3aed;
+  --violet-bright: #a78bfa;
   --accent: var(--indigo);
   --line: rgba(248, 250, 252, 0.1);
   --line-strong: rgba(248, 250, 252, 0.18);
   --surface-soft: rgba(17, 24, 39, 0.6);
   --gradient-brand: linear-gradient(120deg, #4f46e5 0%, #7c3aed 100%);
+  --gradient-brand-bright: linear-gradient(120deg, #6366f1 0%, #a78bfa 100%);
 }
 
 @theme inline {
@@ -60,6 +63,7 @@ body {
 
 .font-display {
   font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.02em;
 }
 
 .mono-label {
@@ -68,9 +72,33 @@ body {
   text-transform: uppercase;
 }
 
+/* Chip-style eyebrow: soft gradient tint instead of flat colored text */
+.eyebrow-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  border: 1px solid rgba(124, 58, 237, 0.35);
+  background: linear-gradient(
+    120deg,
+    rgba(79, 70, 229, 0.16),
+    rgba(124, 58, 237, 0.1)
+  );
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.06) inset;
+}
+
+.eyebrow-chip .dot {
+  height: 6px;
+  width: 6px;
+  border-radius: 999px;
+  background-image: var(--gradient-brand-bright);
+  box-shadow: 0 0 8px 1px rgba(124, 58, 237, 0.7);
+}
+
 /* Blue → purple signature gradient. No rainbow colors. */
 .text-generated {
-  background-image: var(--gradient-brand);
+  background-image: var(--gradient-brand-bright);
   background-color: var(--indigo);
   -webkit-background-clip: text;
   background-clip: text;
@@ -82,8 +110,25 @@ body {
 }
 
 .surface {
-  background: var(--surface-soft);
+  background: linear-gradient(
+    165deg,
+    rgba(79, 70, 229, 0.1),
+    rgba(17, 24, 39, 0.75) 55%
+  );
   border: 1px solid var(--line);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.05) inset,
+    0 40px 80px -40px rgba(79, 70, 229, 0.35);
+}
+
+.surface-featured {
+  border-color: var(--violet);
+  background: linear-gradient(
+    165deg,
+    rgba(124, 58, 237, 0.2),
+    rgba(17, 24, 39, 0.8) 55%
+  );
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+    0 40px 90px -30px rgba(124, 58, 237, 0.45);
 }
 
 .hairline-t {
@@ -92,6 +137,68 @@ body {
 
 .hairline-b {
   border-bottom: 1px solid var(--line);
+}
+
+/* Gradient-fade divider for key section transitions */
+.hairline-fade {
+  height: 1px;
+  width: 100%;
+  background-image: linear-gradient(
+    90deg,
+    transparent,
+    rgba(124, 58, 237, 0.5) 50%,
+    transparent
+  );
+}
+
+/* ---------------------------------------------------- */
+/* Hero visual: glass panels + floating chips            */
+/* ---------------------------------------------------- */
+
+.glass-panel {
+  background: linear-gradient(
+    160deg,
+    rgba(248, 250, 252, 0.09),
+    rgba(17, 24, 39, 0.55)
+  );
+  border: 1px solid rgba(248, 250, 252, 0.14);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+    0 30px 60px -20px rgba(5, 8, 22, 0.6);
+}
+
+.float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-slow-delayed {
+  animation: float 6s ease-in-out infinite;
+  animation-delay: 1.4s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Alternating ambient section tint for tonal depth between sections */
+.section-tint {
+  position: relative;
+  background: radial-gradient(
+      900px circle at 15% 0%,
+      rgba(79, 70, 229, 0.1),
+      transparent 55%
+    ),
+    radial-gradient(
+      700px circle at 100% 100%,
+      rgba(124, 58, 237, 0.08),
+      transparent 55%
+    );
 }
 
 /* ---------------------------------------------------- */
@@ -218,14 +325,26 @@ body {
 /* ---------------------------------------------------- */
 
 .card-lift {
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.35s ease, background-color 0.35s ease;
+  background: linear-gradient(
+    165deg,
+    rgba(79, 70, 229, 0.06),
+    rgba(17, 24, 39, 0.4) 60%
+  );
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.04) inset;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card-lift:hover {
   transform: translateY(-4px);
-  border-color: rgba(124, 58, 237, 0.4);
-  background: rgba(17, 24, 39, 0.9);
+  border-color: rgba(124, 58, 237, 0.45);
+  background: linear-gradient(
+    165deg,
+    rgba(79, 70, 229, 0.14),
+    rgba(17, 24, 39, 0.7) 60%
+  );
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.08) inset,
+    0 24px 60px -24px rgba(124, 58, 237, 0.45);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -237,7 +356,9 @@ body {
   .magnetic,
   .card-lift,
   .btn-primary,
-  .btn-secondary {
+  .btn-secondary,
+  .float-slow,
+  .float-slow-delayed {
     transition: none !important;
     animation: none !important;
     opacity: 1 !important;

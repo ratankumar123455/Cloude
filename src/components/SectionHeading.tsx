@@ -17,11 +17,16 @@ export default function SectionHeading({
         align === "center" ? "mx-auto text-center" : ""
       }`}
     >
-      <p className="mono-label text-[11px] text-accent">{eyebrow}</p>
-      <p className="font-display mt-3 text-3xl text-paper sm:text-4xl">
+      <span className={`eyebrow-chip ${align === "center" ? "" : ""}`}>
+        <span className="dot" aria-hidden="true" />
+        <span className="mono-label text-[10px] text-paper">{eyebrow}</span>
+      </span>
+      <p className="font-display mt-5 text-4xl font-medium text-paper sm:text-5xl">
         {title}
       </p>
-      {description && <p className="mt-4 text-muted">{description}</p>}
+      {description && (
+        <p className="mt-4 text-base text-muted sm:text-lg">{description}</p>
+      )}
     </Reveal>
   );
 }
